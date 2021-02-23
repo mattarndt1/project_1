@@ -24,13 +24,14 @@ function onEachFeature(feature, layer) {
 	//  console.log("in file");
 	  
 	  
-   	 onEachFeature: onEachFeature;
+   	// onEachFeature: onEachFeature;
 	  
     // add GeoJSON layer to the map once the file is loaded
     L.geoJson(data,{	     
 	    "color": "#0000ff",
-	    "weight": 5,
-	    "opacity": 1
+	    "weight": 3,
+	    "opacity": 1,
+	    "fillOpacity": 0
 	      }).addTo(map);
 	  
 /*
