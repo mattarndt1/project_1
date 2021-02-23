@@ -34,15 +34,40 @@ function onEachFeature(feature, layer) {
 	    "fillOpacity": 0
 	      }).addTo(map);
 	  
-/*
-	var ratIcon = L.icon({
-	    iconUrl: 'rat.gif',
-	    iconSize: [25,15]
-	  }); 
-	  L.geoJson(data  ,{
-	    pointToLayer: function(feature,latlng){
-		  return L.marker(latlng,{icon: ratIcon});
-	    }
-	  } );
-	  */
+  });
+
+
+$.getJSON("contour_lines_10ft_simplified_WGS84.geojson",function(data){
+	  
+    // add GeoJSON layer to the map once the file is loaded
+    L.geoJson(data,{	     
+	    "color": "#cccccc",
+	    "weight": .25,
+	    "opacity": 1
+	      }).addTo(map);
+	  
+  });
+
+
+$.getJSON("contour_lines_10ft_simplified_WGS84.geojson",function(data){
+	  
+    // add GeoJSON layer to the map once the file is loaded
+    L.geoJson(data,{	     
+	    "color": "#cccccc",
+	    "weight": .25,
+	    "opacity": 1
+	      }).addTo(map);
+	  
+  });
+
+
+$.getJSON("stands_WGS84.geojson",function(data){
+	  
+    // add GeoJSON layer to the map once the file is loaded
+    L.geoJson(data,{	     
+	    "color": "#cccccc",
+	    "weight": .25,
+	    "opacity": 1
+	      }).addTo(map);
+	  
   });
