@@ -38,7 +38,6 @@ $.getJSON("stands_WGS84.geojson",function(data){
 	  console.log("call on each");
    	onEachFeature: onEachFeature();
 	  console.log("done on each");
-	console.log("props: "+feature.properties);
 	
     // add GeoJSON layer to the map once the file is loaded
     L.geoJson(data,{	     
