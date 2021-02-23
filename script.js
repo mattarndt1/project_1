@@ -21,17 +21,19 @@ function onEachFeature(feature, layer) {
 }
 
 
-//property boundary
-  $.getJSON("LCF_boundary_WGS84.geojson",function(data){
+
+//contour lines
+$.getJSON("contour_lines_10ft_simplified_WGS84.geojson",function(data){
+	  
     // add GeoJSON layer to the map once the file is loaded
     L.geoJson(data,{	     
-	    "color": "#0000ff",
-	    "weight": 3,
-	    "opacity": 1,
-	    "fillOpacity": 0
+	    "color": "#cccccc",
+	    "weight": .25,
+	    "opacity": 1
 	      }).addTo(map);
 	  
   });
+
 
 //forest stands
 var standsJSON = $.getJSON("stands_WGS84.geojson",function(data){
@@ -48,17 +50,16 @@ var standsJSON = $.getJSON("stands_WGS84.geojson",function(data){
   });
 
 
-//contour lines
-$.getJSON("contour_lines_10ft_simplified_WGS84.geojson",function(data){
-	  
+
+//property boundary
+  $.getJSON("LCF_boundary_WGS84.geojson",function(data){
     // add GeoJSON layer to the map once the file is loaded
     L.geoJson(data,{	     
-	    "color": "#cccccc",
-	    "weight": .25,
-	    "opacity": 1
+	    "color": "#0000ff",
+	    "weight": 3,
+	    "opacity": 1,
+	    "fillOpacity": 0
 	      }).addTo(map);
 	  
   });
-
-
 
