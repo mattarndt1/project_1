@@ -29,7 +29,8 @@ function onEachFeature(feature, layer) {
     // add GeoJSON layer to the map once the file is loaded
     L.geoJson(data,{	     
 	    "color": "#0000ff",
-	    "weight": 5
+	    "weight": 5,
+	    "opacity": 1
 	      }).addTo(map);
 	  
 /*
