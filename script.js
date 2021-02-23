@@ -1,4 +1,4 @@
-var map = L.map('map').setView([40.47,-94.18], 12);
+var map = L.map('map').setView([40.49,-94.18], 13);
 
   // load a tile layer
 L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
@@ -6,13 +6,17 @@ L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
 	minZoom: 0,
 	maxZoom: 20
 }).addTo(map);
-/*
-  // load GeoJSON from an external file
-  $.getJSON("https://raw.githubusercontent.com/gbrunner/adv-python-for-gis-and-rs/master/Week%201/sf_crime.geojson",function(data){
-    // add GeoJSON layer to the map once the file is loaded
-    L.geoJson(data).addTo(map);
-	  
 
+
+  $.getJSON("https://github.com/mattarndt1/project_1--leaflet/blob/main/LCF_boundary.geojson",function(data){
+	  
+    // add GeoJSON layer to the map once the file is loaded
+    L.geoJson(data{	     
+	    "color": "#0000ff",
+	    "weight": 5
+	      }).addTo(map);
+	  
+/*
 	var ratIcon = L.icon({
 	    iconUrl: 'rat.gif',
 	    iconSize: [25,15]
@@ -22,5 +26,5 @@ L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
 		  return L.marker(latlng,{icon: ratIcon});
 	    }
 	  } );
+	  */
   });
-  */
