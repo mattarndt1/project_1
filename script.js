@@ -15,11 +15,16 @@ L.tileLayer('https://mt1.google.com/vt/lyrs=h&x={x}&y={y}&z={z}', {
 }).addTo(map);
 
 */
+function onEachFeature(feature, layer) {
+    layer.bindPopup("Stand "+feature.properties.NAME+"<br/>"+feature.properties.ACRES+" acres");
+}
+
 
   $.getJSON("LCF_boundary.geojson",function(data){
-	  console.log("in file");
+	//  console.log("in file");
 	  
-        onEachFeature: layer.bindPopup("Stand "+feature.properties.NAME+"<br/>"+feature.properties.ACRES+" acres");
+	  
+   	 onEachFeature: onEachFeature;
 	  
     // add GeoJSON layer to the map once the file is loaded
     L.geoJson(data,{	     
