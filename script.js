@@ -34,17 +34,15 @@ function onEachFeature(feature, layer) {
   });
 
 //forest stands
-$.getJSON("stands_WGS84.geojson",function(data){
-	  console.log("call on each");
-   	onEachFeature: onEachFeature();
-	  console.log("done on each");
-	
+var standsJSON = $.getJSON("stands_WGS84.geojson",function(data){
+	  
     // add GeoJSON layer to the map once the file is loaded
     L.geoJson(data,{	     
 	    "color": "#ffff00",
 	    "weight": 1.5,
 	    "opacity": 1,
-	    "fillOpacity": .2
+	    "fillOpacity": .2,
+   		onEachFeature: onEachFeature
 	      }).addTo(map);
 	  
   });
