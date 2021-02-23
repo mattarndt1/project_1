@@ -21,7 +21,7 @@ function onEachFeature(feature, layer) {
 }
 
 
-
+//property boundary
   $.getJSON("LCF_boundary_WGS84.geojson",function(data){
     // add GeoJSON layer to the map once the file is loaded
     L.geoJson(data,{	     
