@@ -11,7 +11,7 @@ L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
   $.getJSON("https://github.com/mattarndt1/project_1--leaflet/blob/main/LCF_boundary.geojson",function(data){
 	  
     // add GeoJSON layer to the map once the file is loaded
-    L.geoJson(data{	     
+    L.geoJson(data,{	     
 	    "color": "#0000ff",
 	    "weight": 5
 	      }).addTo(map);
