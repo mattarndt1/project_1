@@ -16,8 +16,8 @@ L.tileLayer('https://mt1.google.com/vt/lyrs=h&x={x}&y={y}&z={z}', {
 
 */
 function onEachFeature(feature, layer) {
-	console.log("Stand "+feature.properties.NAME+"<br/>"+feature.properties.ACRES+" acres");
-    layer.bindPopup("Stand "+feature.properties.NAME+"<br/>"+feature.properties.ACRES+" acres");
+	console.log("Stand "+feature.properties.Name+"<br/>"+feature.properties.ACRES+" acres");
+    layer.bindPopup("Stand "+feature.properties.Name+"<br/>"+feature.properties.ACRES+" acres");
 }
 
 
