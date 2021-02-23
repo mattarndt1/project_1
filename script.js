@@ -19,6 +19,8 @@ L.tileLayer('https://mt1.google.com/vt/lyrs=h&x={x}&y={y}&z={z}', {
   $.getJSON("LCF_boundary.geojson",function(data){
 	  console.log("in file");
 	  
+        onEachFeature: layer.bindPopup("Stand "+feature.properties.NAME+"<br/>"+feature.properties.ACRES+" acres");
+	  
     // add GeoJSON layer to the map once the file is loaded
     L.geoJson(data,{	     
 	    "color": "#0000ff",
