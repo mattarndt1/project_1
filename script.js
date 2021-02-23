@@ -20,12 +20,35 @@ function onEachFeature(feature, layer) {
 }
 
 
+
+//contour lines
+$.getJSON("contour_lines_10ft_simplified_WGS84.geojson",function(data){
+	  
+    // add GeoJSON layer to the map once the file is loaded
+    L.geoJson(data,{	     
+	    "color": "#cccccc",
+	    "weight": .25,
+	    "opacity": 1
+	      }).addTo(map);
+	  
+  });
+
+//forest stands
+$.getJSON("stands_WGS84.geojson",function(data){
+	  
+   	onEachFeature: onEachFeature;
+	
+    // add GeoJSON layer to the map once the file is loaded
+    L.geoJson(data,{	     
+	    "color": "#cccccc",
+	    "weight": .25,
+	    "opacity": 1
+	      }).addTo(map);
+	  
+  });
+
+
   $.getJSON("LCF_boundary_WGS84.geojson",function(data){
-	//  console.log("in file");
-	  
-	  
-   	// onEachFeature: onEachFeature;
-	  
     // add GeoJSON layer to the map once the file is loaded
     L.geoJson(data,{	     
 	    "color": "#0000ff",
@@ -36,38 +59,3 @@ function onEachFeature(feature, layer) {
 	  
   });
 
-
-$.getJSON("contour_lines_10ft_simplified_WGS84.geojson",function(data){
-	  
-    // add GeoJSON layer to the map once the file is loaded
-    L.geoJson(data,{	     
-	    "color": "#cccccc",
-	    "weight": .25,
-	    "opacity": 1
-	      }).addTo(map);
-	  
-  });
-
-
-$.getJSON("contour_lines_10ft_simplified_WGS84.geojson",function(data){
-	  
-    // add GeoJSON layer to the map once the file is loaded
-    L.geoJson(data,{	     
-	    "color": "#cccccc",
-	    "weight": .25,
-	    "opacity": 1
-	      }).addTo(map);
-	  
-  });
-
-
-$.getJSON("stands_WGS84.geojson",function(data){
-	  
-    // add GeoJSON layer to the map once the file is loaded
-    L.geoJson(data,{	     
-	    "color": "#cccccc",
-	    "weight": .25,
-	    "opacity": 1
-	      }).addTo(map);
-	  
-  });
