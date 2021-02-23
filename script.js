@@ -40,9 +40,10 @@ $.getJSON("stands_WGS84.geojson",function(data){
 	
     // add GeoJSON layer to the map once the file is loaded
     L.geoJson(data,{	     
-	    "color": "#cccccc",
-	    "weight": .25,
-	    "opacity": 1
+	    "color": "#00ffff",
+	    "weight": 2,
+	    "opacity": 1,
+	    "fillOpacity": .2
 	      }).addTo(map);
 	  
   });
