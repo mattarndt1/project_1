@@ -6,7 +6,7 @@ L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
 	minZoom: 0,
 	maxZoom: 20
 }).addTo(map);
-
+/*
   // load GeoJSON from an external file
   $.getJSON("https://raw.githubusercontent.com/gbrunner/adv-python-for-gis-and-rs/master/Week%201/sf_crime.geojson",function(data){
     // add GeoJSON layer to the map once the file is loaded
@@ -23,3 +23,4 @@ L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
 	    }
 	  } );
   });
+  */
