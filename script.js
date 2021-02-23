@@ -16,7 +16,7 @@ L.tileLayer('https://mt1.google.com/vt/lyrs=h&x={x}&y={y}&z={z}', {
 
 */
 function onEachFeature(feature, layer) {
-	console.log("NEW - Stand "+feature.properties.Name+"<br/>"+feature.properties.ACRES+" acres");
+	//console.log("Stand "+feature.properties.Name+"<br/>"+feature.properties.ACRES+" acres");
     layer.bindPopup("Stand "+feature.properties.Name+"<br/>"+feature.properties.ACRES+" acres");
 }
 
@@ -44,7 +44,6 @@ $.getJSON("stands_WGS84.geojson",function(data){
 	    "weight": 1.5,
 	    "opacity": 1,
 	    "fillOpacity": .2,
-	    "align": "center",
    		onEachFeature: onEachFeature
 	 }).addTo(map);
 	  
