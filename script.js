@@ -1,4 +1,4 @@
-var map = L.map('map').setView([40.3,-94.1], 8);
+var map = L.map('map').setView([40.3,-94.1], 15);
 
   // load a tile layer
 L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
