@@ -44,8 +44,9 @@ var standsJSON = $.getJSON("stands_WGS84.geojson",function(data){
 	    "weight": 1.5,
 	    "opacity": 1,
 	    "fillOpacity": .2,
+	    "align": "center",
    		onEachFeature: onEachFeature
-	      }).addTo(map);
+	 }).addTo(map);
 	  
   });
 
@@ -59,7 +60,7 @@ var standsJSON = $.getJSON("stands_WGS84.geojson",function(data){
 	    "weight": 3,
 	    "opacity": 1,
 	    "fillOpacity": 0
-	      }).addTo(map);
+	 }).addTo(map);
 	  
   });
 
