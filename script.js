@@ -6,7 +6,7 @@ L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
 	minZoom: 0,
 	maxZoom: 20
 }).addTo(map);
-
+/*
   // load Google Roads
 L.tileLayer('https://mt1.google.com/vt/lyrs=h&x={x}&y={y}&z={z}', {
 	attribution: 'Imagery from Google XYZ service; (c) 2021 Maxar Technologies, USDA Farm Service Agency, Map Data (c) 2021',
@@ -14,7 +14,7 @@ L.tileLayer('https://mt1.google.com/vt/lyrs=h&x={x}&y={y}&z={z}', {
 	maxZoom: 20
 }).addTo(map);
 
-
+*/
 
   $.getJSON("LCF_boundary.geojson",function(data){
 	  
