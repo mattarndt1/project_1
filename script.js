@@ -36,7 +36,7 @@ $.getJSON("contour_lines_10ft_simplified_WGS84.geojson",function(data){
 
 
 //forest stands
-var standsJSON = $.getJSON("stands_WGS84.geojson",function(data){
+$.getJSON("stands_WGS84.geojson",function(data){
 	  
     // add GeoJSON layer to the map once the file is loaded
     L.geoJson(data,{	     
