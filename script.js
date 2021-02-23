@@ -20,7 +20,7 @@ function onEachFeature(feature, layer) {
 }
 
 
-  $.getJSON("LCF_boundary.geojson",function(data){
+  $.getJSON("LCF_boundary_WGS84.geojson",function(data){
 	//  console.log("in file");
 	  
 	  
