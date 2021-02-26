@@ -95,17 +95,23 @@ $.getJSON("LCF_boundary_WGS84.geojson",function(data){
 	  
   });
 
+var baseMaps;
+var overlays;
 
-var baseMaps = {
-    "Google Satellite": sat,
-    "Google Map": g_map
-};
+$(document).ready(function(){
+	baseMaps = {
+	    "Google Satellite": sat,
+	    "Google Map": g_map
+	};
 
-var overlays = {
-    "Property Boundary": boundary,
-	"Forest Stands": stands};
+	overlays = {
+	    "Property Boundary": boundary,
+		"Forest Stands": stands,
+		"Contour Lines": contours};
 
-L.control.layers(baseMaps,overlays).addTo(map);
+	L.control.layers(baseMaps,overlays).addTo(map);
+	
+});
 
 /*
 map.on('zoomend', function() {
