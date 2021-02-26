@@ -27,7 +27,8 @@ var contour_layer,contour;
 $.getJSON("contour_lines_10ft_simplified_WGS84.geojson",function(data){
 	  
     // add GeoJSON layer to the map once the file is loaded
-	contour_layer = L.geoJson(,{	     
+	contour_layer = L.geoJson();
+	/*contour_layer = L.geoJson(,{	     
 	    "color": "#cccccc",
 	    "weight": .25,
 	    "opacity": 1
