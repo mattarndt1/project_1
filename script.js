@@ -23,11 +23,12 @@ function onEachFeature(feature, layer) {
 
 
 //contour lines
+var contour_layer,contour;
 $.getJSON("contour_lines_10ft_simplified_WGS84.geojson",function(data){
 	  
     // add GeoJSON layer to the map once the file is loaded
-	var contour_layer = L.geoJson().addTo(map);
-	var contour = L.geoJson(data,{	     
+	contour_layer = L.geoJson().addTo(map);
+	contour = L.geoJson(data,{	     
 	    "color": "#cccccc",
 	    "weight": .25,
 	    "opacity": 1
@@ -65,7 +66,7 @@ $.getJSON("LCF_boundary_WGS84.geojson",function(data){
   });
 
 
-map.on('zoomend', function(contour) {
+map.on('zoomend', function() {
 	var zoomlevel = map.getZoom();
 	if (zoomlevel  >=14 && (! map.hasLayer(contour))){
 		contour_layer.addData(contour);
