@@ -18,7 +18,7 @@ var g_map = L.tileLayer('https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
 var map = L.map('map', {
     center: [40.55,-94.18],
     zoom: 12,
-    layers: [sat, g_map]
+    layers: [g_map,sat]
 });
 //var map = L.map('map').setView([40.55,-94.18], zoom:12,layers: [sat, g_map]);
 
