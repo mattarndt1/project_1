@@ -41,7 +41,7 @@ $.getJSON("contour_lines_10ft_simplified_WGS84.geojson",function(data){
 	    "opacity": 1
 	      }).addTo(map);
 	      */
-	contours = new L.geoJson(data,{	     
+	contours = L.geoJson(data,{	     
 	    "color": "#cccccc",
 	    "weight": .25,
 	    "opacity": 1
@@ -104,8 +104,13 @@ map.on('zoomend', function() {
 	
 	console.log("zoom");
 	console.log(contours);
+	
 	if (zoomlevel  >=14  && ( ! map.hasLayer(contour_layer))){
-		L.control.layers(contour_layer).addTo(map);
+		
+	contour_layer = {"contour lines": layer};
+	L.control.layers(contour_layer).addTo(map);
+		
+		//L.control.layers(contour_layer).addTo(map);
 		//contour_layer.addData(contour);
 		contour_layer.setStyle({	     
 		    "color": "#cccccc",
