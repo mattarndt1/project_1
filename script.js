@@ -48,7 +48,7 @@ $.getJSON("contour_lines_10ft_simplified_WGS84.geojson",function(data){
 	      });    //.addTo(map);
 	console.log(contours);
 	//contour = data;
-  }).then(contours.addTo(map););
+  }).then(contours.addTo(map));
 
 	console.log(contours);
 
