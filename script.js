@@ -49,6 +49,7 @@ $.getJSON("contour_lines_10ft_simplified_WGS84.geojson",function(data){
 	//contour = data;
   });
 
+contours.addTo(map);
 
 //forest stands
 $.getJSON("stands_WGS84.geojson",function(data){
