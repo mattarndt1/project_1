@@ -45,10 +45,25 @@ $.getJSON("contour_lines_10ft_simplified_WGS84.geojson",function(data){
 	    "color": "#cccccc",
 	    "weight": .25,
 	    "opacity": 1
-	      });    //.addTo(map);
+	      }).then(setGroup)
+          .catch(rejection);
+
+
 //	console.log(contours);
 	//contour = data;
   });
+
+        // Adds the layer to the map once it loads
+function setGroup(layer) {
+	contour_layer = {"contour lines": layer};
+	L.control.layers(contour_layer).addTo(map);
+}
+
+
+function rejection(error) {
+  console.log("Layer failed to load: ", error);
+}
+
 
 //	console.log(contours);
 
