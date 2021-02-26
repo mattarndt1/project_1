@@ -95,9 +95,6 @@ $.getJSON("LCF_boundary_WGS84.geojson",function(data){
 	  
   });
 
-var contour_layer = {
-  "contour_lines": contours
-};
 
 map.on('zoomend', function() {
 	var zoomlevel = map.getZoom();
@@ -107,7 +104,7 @@ map.on('zoomend', function() {
 	
 	if (zoomlevel  >=14  && ( ! map.hasLayer(contour_layer))){
 		
-	contour_layer = {"contour lines": layer};
+	contour_layer = {"contour lines": contours};
 	L.control.layers(contour_layer).addTo(map);
 		
 		//L.control.layers(contour_layer).addTo(map);
