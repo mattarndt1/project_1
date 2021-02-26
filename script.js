@@ -52,7 +52,7 @@ $.getJSON("contour_lines_10ft_simplified_WGS84.geojson",function(data){
 	    "color": "#cccccc",
 	    "weight": .25,
 	    "opacity": 1
-	      });
+	      }).addTo(map);
 
 
 //	console.log(contours);
@@ -98,10 +98,10 @@ $.getJSON("LCF_boundary_WGS84.geojson",function(data){
 var baseMaps;
 var overlays;
 
-setTimeout(function(){
+//setTimeout(function(){
 	baseMaps = {
-	    "Google Satellite": sat,
-	    "Google Map": g_map
+	    "Google Map": g_map,
+	    "Google Satellite": sat
 	};
 
 	overlays = {
@@ -110,7 +110,7 @@ setTimeout(function(){
 		"Contour Lines": contours};
 
 	L.control.layers(baseMaps,overlays).addTo(map);
-}, 2500);
+//}, 2500);
 
 /*
 map.on('zoomend', function() {
