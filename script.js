@@ -67,9 +67,9 @@ map.on('zoomend', function() {
 	var zoomlevel = map.getZoom();
 	console.log(zoomlevel);
 	if (zoomlevel  >=14 && map.hasLayer(contour)){
-	map.addLayer(contour);
+		map.addLayer(contour);
 	}
 	else if (zoomlevel  <14 && (! map.hasLayer(contour))){
-	map.addLayer(contour);
+		map.removeLayer(contour);
 	}
 });
