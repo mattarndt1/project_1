@@ -30,8 +30,7 @@ var contour = $.getJSON("contour_lines_10ft_simplified_WGS84.geojson",function(d
 	    "color": "#cccccc",
 	    "weight": .25,
 	    "opacity": 1
-	      }).addTo(map);
-	  
+	      })    //.addTo(map);	  
   });
 
 
