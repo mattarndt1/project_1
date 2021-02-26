@@ -15,8 +15,12 @@ var g_map = L.tileLayer('https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
 });
 //.addTo(map);
 
-
-var map = L.map('map').setView([40.55,-94.18], zoom:12,layers: [sat, g_map]);
+var map = L.map('map', {
+    center: [40.55,-94.18],
+    zoom: 12,
+    layers: [sat, g_map]
+});
+//var map = L.map('map').setView([40.55,-94.18], zoom:12,layers: [sat, g_map]);
 
 function onEachFeature(feature, layer) {
 	//console.log("Stand "+feature.properties.Name+"<br/>"+feature.properties.ACRES+" acres");
