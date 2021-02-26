@@ -1,20 +1,23 @@
-var map = L.map('map').setView([40.55,-94.18], 12);
 
   // load Google Satellite
 var sat = L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
 	attribution: 'Imagery from Google XYZ service; (c) 2021 Maxar Technologies, USDA Farm Service Agency, Map Data (c) 2021',
 	minZoom: 0,
 	maxZoom: 20
-}).addTo(map);
-/*
-  // load Google Roads
-var roads = L.tileLayer('https://mt1.google.com/vt/lyrs=h&x={x}&y={y}&z={z}', {
+});
+//.addTo(map);
+
+  // load Google Map
+var g_map = L.tileLayer('https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
 	attribution: 'Imagery from Google XYZ service; (c) 2021 Maxar Technologies, USDA Farm Service Agency, Map Data (c) 2021',
 	minZoom: 0,
 	maxZoom: 20
-}).addTo(map);
+});
+//.addTo(map);
 
-*/
+
+var map = L.map('map').setView([40.55,-94.18], zoom:12,layers: [sat, g_map]);
+
 function onEachFeature(feature, layer) {
 	//console.log("Stand "+feature.properties.Name+"<br/>"+feature.properties.ACRES+" acres");
     layer.bindPopup("Stand "+feature.properties.Name+"<br/>"+feature.properties.ACRES+" acres");
@@ -52,26 +55,18 @@ $.getJSON("contour_lines_10ft_simplified_WGS84.geojson",function(data){
 	//contour = data;
   });
 
-        // Adds the layer to the map once it loads
-function setGroup(layer) {
-	contour_layer = {"contour lines": layer};
-	L.control.layers(contour_layer).addTo(map);
-}
 
-
-function rejection(error) {
-  console.log("Layer failed to load: ", error);
-}
 
 
 //	console.log(contours);
 
 
 //forest stands
+var stands;
 $.getJSON("stands_WGS84.geojson",function(data){
 	  
     // add GeoJSON layer to the map once the file is loaded
-	var stands = L.geoJson(data,{	     
+	stands = L.geoJson(data,{	     
 	    "color": "#ffff00",
 	    "weight": 1.5,
 	    "opacity": 1,
@@ -84,9 +79,10 @@ $.getJSON("stands_WGS84.geojson",function(data){
 
 
 //property boundary
+var boundary;
 $.getJSON("LCF_boundary_WGS84.geojson",function(data){
     // add GeoJSON layer to the map once the file is loaded
-	var boundary =  L.geoJson(data,{	     
+	boundary =  L.geoJson(data,{	     
 	    "color": "#0000ff",
 	    "weight": 3,
 	    "opacity": 1,
@@ -96,6 +92,19 @@ $.getJSON("LCF_boundary_WGS84.geojson",function(data){
   });
 
 
+var baseMaps = {
+    "Google Satellite": sat,
+    "Google Map": g_map
+};
+
+var overlays = {
+    "Property Boundary": boundary,
+	"Forest Stands": stands,
+	"Contour Lines": contours};
+
+L.control.layers(baseMaps,overlays).addTo(map);
+
+/*
 map.on('zoomend', function() {
 	var zoomlevel = map.getZoom();
 	
@@ -106,16 +115,7 @@ map.on('zoomend', function() {
 		
 	contour_layer = {"contour lines": contours};
 	L.control.layers(contour_layer).addTo(map);
-		/*
-		//L.control.layers(contour_layer).addTo(map);
-		//contour_layer.addData(contour);
-		contour_layer.setStyle({	     
-		    "color": "#cccccc",
-		    "weight": .25,
-		    "opacity": 1
-		      });
-		      */
-		console.log(contour_layer.options);
+		console.log(contour_layer);
 		console.log("add");
 	}
 	else if (zoomlevel  <14 && map.hasLayer(contour_layer)){
@@ -124,3 +124,4 @@ map.on('zoomend', function() {
 		L.control.layers(contour_layer).removeFrom(map);
 	}
 });
+*/
