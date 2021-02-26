@@ -98,16 +98,7 @@ $.getJSON("LCF_boundary_WGS84.geojson",function(data){
 var baseMaps;
 var overlays;
 
-$(document).ready(function(){
-});
-
-
-map.on('zoomend', function() {
-	var zoomlevel = map.getZoom();
-	
-	console.log("zoom");
-	//console.log(contours);
-	
+$(window).load(function(){
 	baseMaps = {
 	    "Google Satellite": sat,
 	    "Google Map": g_map
@@ -119,6 +110,16 @@ map.on('zoomend', function() {
 		"Contour Lines": contours};
 
 	L.control.layers(baseMaps,overlays).addTo(map);
+});
+
+/*
+map.on('zoomend', function() {
+	var zoomlevel = map.getZoom();
+	
+	console.log("zoom");
+	//console.log(contours);
+	
+	
 	
 	
 	if (zoomlevel  >=14  && ( ! map.hasLayer(contour_layer))){
@@ -133,5 +134,4 @@ map.on('zoomend', function() {
 		
 		L.control.layers(contour_layer).removeFrom(map);
 	}
-});
-
+});*/
