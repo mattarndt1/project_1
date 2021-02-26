@@ -45,8 +45,7 @@ $.getJSON("contour_lines_10ft_simplified_WGS84.geojson",function(data){
 	    "color": "#cccccc",
 	    "weight": .25,
 	    "opacity": 1
-	      }).then(setGroup)
-          .catch(rejection);
+	      });
 
 
 //	console.log(contours);
