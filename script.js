@@ -46,11 +46,11 @@ $.getJSON("contour_lines_10ft_simplified_WGS84.geojson",function(data){
 	    "weight": .25,
 	    "opacity": 1
 	      });    //.addTo(map);
-	console.log(contours);
+//	console.log(contours);
 	//contour = data;
-  }).then(contours.addTo(map));
+  });
 
-	console.log(contours);
+//	console.log(contours);
 
 
 //forest stands
