@@ -106,7 +106,7 @@ map.on('zoomend', function() {
 		
 	contour_layer = {"contour lines": contours};
 	L.control.layers(contour_layer).addTo(map);
-		
+		/*
 		//L.control.layers(contour_layer).addTo(map);
 		//contour_layer.addData(contour);
 		contour_layer.setStyle({	     
@@ -114,6 +114,7 @@ map.on('zoomend', function() {
 		    "weight": .25,
 		    "opacity": 1
 		      });
+		      */
 		console.log(contour_layer.options);
 		console.log("add");
 	}
