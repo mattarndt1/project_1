@@ -25,7 +25,7 @@ function onEachFeature(feature, layer) {
 //contour lines
 var contour_layer,contour;
 $.getJSON("contour_lines_10ft_simplified_WGS84.geojson",function(data){
-	  
+	  /*
     // add GeoJSON layer to the map once the file is loaded
 	contour_layer = L.geoJson();
 	contour_layer.setStyle({	     
@@ -33,19 +33,20 @@ $.getJSON("contour_lines_10ft_simplified_WGS84.geojson",function(data){
 	    "weight": .25,
 	    "opacity": 1
 	      });
-	
+	*/
 	/*contour_layer = L.geoJson(,{	     
 	    "color": "#cccccc",
 	    "weight": .25,
 	    "opacity": 1
 	      }).addTo(map);
-	/*contour = L.geoJson(data,{	     
+	      */
+	contours = L.geoJson(data,{	     
 	    "color": "#cccccc",
 	    "weight": .25,
 	    "opacity": 1
 	      });    //.addTo(map);
-	*/
-	contour = data;
+	
+	//contour = data;
   });
 
 
@@ -77,11 +78,15 @@ $.getJSON("LCF_boundary_WGS84.geojson",function(data){
 	  
   });
 
+var contour_layer = {
+  "contour_lines": contours
+};
 
 map.on('zoomend', function() {
 	var zoomlevel = map.getZoom();
 	if (zoomlevel  >=14  && ( ! map.hasLayer(contour_layer))){
-		contour_layer.addData(contour);
+		L.control.layers(contour_layer).addTo(map);
+		//contour_layer.addData(contour);
 		contour_layer.setStyle({	     
 		    "color": "#cccccc",
 		    "weight": .25,
@@ -91,6 +96,8 @@ map.on('zoomend', function() {
 		console.log("add");
 	}
 	else if (zoomlevel  <14 && map.hasLayer(contour_layer)){
-		contour_layer.clearLayers();
+		//contour_layer.clearLayers();
+		
+		L.control.layers(contour_layer).removeFrom(map);
 	}
 });
