@@ -98,7 +98,7 @@ $.getJSON("LCF_boundary_WGS84.geojson",function(data){
 var baseMaps;
 var overlays;
 
-$(window).load(function(){
+setTimeout(function(){
 	baseMaps = {
 	    "Google Satellite": sat,
 	    "Google Map": g_map
@@ -110,7 +110,7 @@ $(window).load(function(){
 		"Contour Lines": contours};
 
 	L.control.layers(baseMaps,overlays).addTo(map);
-});
+}, 2500);
 
 /*
 map.on('zoomend', function() {
