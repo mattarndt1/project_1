@@ -103,8 +103,7 @@ var baseMaps = {
 
 var overlays = {
     "Property Boundary": boundary,
-	"Forest Stands": stands,
-	"Contour Lines": contours};
+	"Forest Stands": stands};
 
 L.control.layers(baseMaps,overlays).addTo(map);
 
