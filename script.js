@@ -88,6 +88,7 @@ var contour_layer = {
 map.on('zoomend', function() {
 	var zoomlevel = map.getZoom();
 	
+	console.log("zoom");
 	console.log(contours);
 	if (zoomlevel  >=14  && ( ! map.hasLayer(contour_layer))){
 		L.control.layers(contour_layer).addTo(map);
