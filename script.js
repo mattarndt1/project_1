@@ -99,6 +99,15 @@ var baseMaps;
 var overlays;
 
 $(document).ready(function(){
+});
+
+
+map.on('zoomend', function() {
+	var zoomlevel = map.getZoom();
+	
+	console.log("zoom");
+	//console.log(contours);
+	
 	baseMaps = {
 	    "Google Satellite": sat,
 	    "Google Map": g_map
@@ -111,14 +120,6 @@ $(document).ready(function(){
 
 	L.control.layers(baseMaps,overlays).addTo(map);
 	
-});
-
-/*
-map.on('zoomend', function() {
-	var zoomlevel = map.getZoom();
-	
-	console.log("zoom");
-	console.log(contours);
 	
 	if (zoomlevel  >=14  && ( ! map.hasLayer(contour_layer))){
 		
@@ -133,4 +134,4 @@ map.on('zoomend', function() {
 		L.control.layers(contour_layer).removeFrom(map);
 	}
 });
-*/
+
