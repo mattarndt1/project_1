@@ -23,7 +23,8 @@ function onEachFeature(feature, layer) {
 
 
 //contour lines
-var contour_layer,contours;
+var contour_layer;
+var contours;
 $.getJSON("contour_lines_10ft_simplified_WGS84.geojson",function(data){
 	  /*
     // add GeoJSON layer to the map once the file is loaded
@@ -45,10 +46,11 @@ $.getJSON("contour_lines_10ft_simplified_WGS84.geojson",function(data){
 	    "weight": .25,
 	    "opacity": 1
 	      });    //.addTo(map);
-	
+	console.log(contours);
 	//contour = data;
   });
 
+	console.log(contours);
 contours.addTo(map);
 
 //forest stands
