@@ -23,22 +23,22 @@ function onEachFeature(feature, layer) {
 
 
 //contour lines
-var contour = $.getJSON("contour_lines_10ft_simplified_WGS84.geojson",function(data){
+$.getJSON("contour_lines_10ft_simplified_WGS84.geojson",function(data){
 	  
     // add GeoJSON layer to the map once the file is loaded
-    L.geoJson(data,{	     
+	var contour = L.geoJson(data,{	     
 	    "color": "#cccccc",
 	    "weight": .25,
 	    "opacity": 1
-	      })    //.addTo(map);	  
+	      });    //.addTo(map);	  
   });
 
 
 //forest stands
-var stands = $.getJSON("stands_WGS84.geojson",function(data){
+$.getJSON("stands_WGS84.geojson",function(data){
 	  
     // add GeoJSON layer to the map once the file is loaded
-    L.geoJson(data,{	     
+	var stands = L.geoJson(data,{	     
 	    "color": "#ffff00",
 	    "weight": 1.5,
 	    "opacity": 1,
@@ -51,9 +51,9 @@ var stands = $.getJSON("stands_WGS84.geojson",function(data){
 
 
 //property boundary
-var boundary =  $.getJSON("LCF_boundary_WGS84.geojson",function(data){
+$.getJSON("LCF_boundary_WGS84.geojson",function(data){
     // add GeoJSON layer to the map once the file is loaded
-    L.geoJson(data,{	     
+	var boundary =  L.geoJson(data,{	     
 	    "color": "#0000ff",
 	    "weight": 3,
 	    "opacity": 1,
@@ -66,10 +66,10 @@ var boundary =  $.getJSON("LCF_boundary_WGS84.geojson",function(data){
 map.on('zoomend', function() {
 	var zoomlevel = map.getZoom();
 	console.log(zoomlevel);
-	if (zoomlevel  >=14 && map.hasLayer(contour)){
+	if (zoomlevel  >=14 && (! map.hasLayer(contour))){
 		map.addLayer(contour);
 	}
-	else if (zoomlevel  <14 && (! map.hasLayer(contour))){
+	else if (zoomlevel  <14 && map.hasLayer(contour)){
 		map.removeLayer(contour);
 	}
 });
