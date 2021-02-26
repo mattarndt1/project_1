@@ -64,7 +64,7 @@ $.getJSON("LCF_boundary_WGS84.geojson",function(data){
   });
 
 
-map.on('zoomend', function() {
+map.on('zoomend', function(contour) {
 	var zoomlevel = map.getZoom();
 	console.log(zoomlevel);
 	if (zoomlevel  >=14 && (! map.hasLayer(contour))){
