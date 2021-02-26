@@ -82,6 +82,11 @@ map.on('zoomend', function() {
 	var zoomlevel = map.getZoom();
 	if (zoomlevel  >=14  && ( ! map.hasLayer(contour_layer))){
 		contour_layer.addData(contour);
+		contour_layer.setStyle({	     
+		    "color": "#cccccc",
+		    "weight": .25,
+		    "opacity": 1
+		      });
 		console.log(contour_layer.options);
 		console.log("add");
 	}
