@@ -23,7 +23,7 @@ function onEachFeature(feature, layer) {
 
 
 //contour lines
-var contour_layer,contour;
+var contour_layer,contours;
 $.getJSON("contour_lines_10ft_simplified_WGS84.geojson",function(data){
 	  /*
     // add GeoJSON layer to the map once the file is loaded
