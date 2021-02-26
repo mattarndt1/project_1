@@ -23,14 +23,15 @@ function onEachFeature(feature, layer) {
 
 
 //contour lines
-$.getJSON("contour_lines_10ft_simplified_WGS84.geojson",function(data){
+var contour = $.getJSON("contour_lines_10ft_simplified_WGS84.geojson",function(data){
 	  
     // add GeoJSON layer to the map once the file is loaded
-	var contour = L.geoJson(data,{	     
+	var layer = L.geoJson(data,{	     
 	    "color": "#cccccc",
 	    "weight": .25,
 	    "opacity": 1
-	      });    //.addTo(map);	  
+	      });    //.addTo(map);
+	return layer;
   });
 
 
