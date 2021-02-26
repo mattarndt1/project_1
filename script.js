@@ -33,37 +33,13 @@ function onEachFeature(feature, layer) {
 var contour_layer;
 var contours;
 $.getJSON("contour_lines_10ft_simplified_WGS84.geojson",function(data){
-	  /*
-    // add GeoJSON layer to the map once the file is loaded
-	contour_layer = L.geoJson();
-	contour_layer.setStyle({	     
-	    "color": "#cccccc",
-	    "weight": .25,
-	    "opacity": 1
-	      });
-	*/
-	/*contour_layer = L.geoJson(,{	     
-	    "color": "#cccccc",
-	    "weight": .25,
-	    "opacity": 1
-	      }).addTo(map);
-	      */
+	 
 	contours = L.geoJson(data,{	     
 	    "color": "#cccccc",
 	    "weight": .25,
 	    "opacity": 1
-	      }).addTo(map);
-
-
-//	console.log(contours);
-	//contour = data;
+	      });
   });
-
-
-
-
-//	console.log(contours);
-
 
 //forest stands
 var stands;
@@ -98,7 +74,10 @@ $.getJSON("LCF_boundary_WGS84.geojson",function(data){
 var baseMaps;
 var overlays;
 
-//setTimeout(function(){
+setTimeout(function(){
+	stands.bringToFront();
+	boundary.bringToFront();
+	
 	baseMaps = {
 	    "Google Map": g_map,
 	    "Google Satellite": sat
@@ -110,7 +89,7 @@ var overlays;
 		"Contour Lines": contours};
 
 	L.control.layers(baseMaps,overlays).addTo(map);
-//}, 2500);
+}, 2500);
 
 /*
 map.on('zoomend', function() {
