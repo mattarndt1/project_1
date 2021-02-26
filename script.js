@@ -41,7 +41,7 @@ $.getJSON("contour_lines_10ft_simplified_WGS84.geojson",function(data){
 	    "opacity": 1
 	      }).addTo(map);
 	      */
-	contours = L.geoJson(data,{	     
+	contours = new L.geoJson(data,{	     
 	    "color": "#cccccc",
 	    "weight": .25,
 	    "opacity": 1
