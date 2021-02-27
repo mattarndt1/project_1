@@ -146,7 +146,8 @@ setTimeout(function(){
 			symbol: {
 			  color: "#cccccc",
 			  type: "simple-line",
-			  style: "solid"
+			  style: "solid",
+				width: ".25pt"
 			}
 		}
 	});
