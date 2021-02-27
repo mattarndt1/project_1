@@ -151,7 +151,7 @@ setTimeout(function(){
 			  type: "simple",  // autocasts as new SimpleRenderer()
 			  symbol: {
 			    type: "simple-fill",  // autocasts as new SimpleFillSymbol()
-			    color: [255,255,255,.2],
+			    color: [255,255,0,.2],
 			    outline: {  // autocasts as new SimpleLineSymbol()
 			      width: 1,
 			      color: "#ffff00"
@@ -180,6 +180,16 @@ setTimeout(function(){
 	});
 	 
         map.add(geojsonLayer);
+	 
+	 const basemapGallery = new BasemapGallery({
+	  view: view,
+	  container: document.createElement("div")
+	});
+
+	// Add the widget to the top-right corner of the view
+	view.ui.add(basemapGallery, {
+	  position: "top-right"
+	});
 	 
 	       
 });
