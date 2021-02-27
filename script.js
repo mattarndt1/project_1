@@ -59,7 +59,7 @@ $.getJSON("stands_WGS84.geojson",function(data){
 	    "opacity": 1,
 	    "fillOpacity": .2,
    		onEachFeature: onEachFeature
-	 }).then(function({addTo(map)}););
+	 }).addTo(map);
 	  
   });
 
