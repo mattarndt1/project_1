@@ -147,7 +147,7 @@ setTimeout(function(){
 			  color: "#cccccc",
 			  type: "simple-line",
 			  style: "solid",
-				width: ".25pt"
+				width: ".25px"
 			}
 		}
 	});
@@ -155,7 +155,20 @@ setTimeout(function(){
         map.add(geojsonLayer);
 	 
         var geojsonLayer = new GeoJSONLayer({
-	  url: "stands_WGS84.geojson"
+	  	url: "stands_WGS84.geojson",
+		renderer: {
+			  type: "simple",  // autocasts as new SimpleRenderer()
+			  symbol: {
+			    type: "simple-fill",  // autocasts as new SimpleFillSymbol()
+			    color: "#00ffff",
+				opacity: .4,
+			    outline: {  // autocasts as new SimpleLineSymbol()
+			      width: 1.5,
+			      color: "$00ffff"
+			    }
+			  }
+			}
+		}
 	});
 	 
         map.add(geojsonLayer);
