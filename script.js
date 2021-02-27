@@ -139,7 +139,7 @@ setTimeout(function(){
 	    	url: 'https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', 
 		attribution: 'Imagery from Google XYZ service; (c) 2021 Maxar Technologies, USDA Farm Service Agency, Map Data (c) 2021',
 		minZoom: 0,
-		maxZoom: 20"
+		maxZoom: 20
 	  });
 	 
         var featureLayer1 = new FeatureLayer({     url:"https://services2.arcgis.com/bB9Y1bGKerz1PTl5/arcgis/rest/services/Commission_prop_footprint/FeatureServer"});
