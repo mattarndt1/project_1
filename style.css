@@ -1,5 +1,16 @@
-#map { 
-  height: 90vh; 
-  width: 90vw;
-  margin: auto;
+#container{
+  width: 100%; 
+  margin 0.5%;
+  position: relative;
+  float: left;
 }
+
+.map_window { 
+  height: 50%; 
+  min-height: 200px;
+  width: 30%;
+  min-width: 175px;
+  position: relative;
+  float: left;
+}
+
