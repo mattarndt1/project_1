@@ -150,6 +150,7 @@ setTimeout(function(){
 			  type: "simple-line",
 			  style: "solid"
 			}
+		}
 	});
 	 
         map.add(geojsonLayer);
