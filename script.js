@@ -4,6 +4,12 @@
 **
 ***************************/
 
+function onEachFeature(feature, layer) {
+	//console.log("Stand "+feature.properties.Name+"<br/>"+feature.properties.ACRES+" acres");
+    layer.bindPopup("Stand "+feature.properties.Name+"<br/>"+feature.properties.ACRES+" acres");
+}
+
+
   // load Google Satellite
 var sat = L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
 	attribution: 'Imagery from Google XYZ service; (c) 2021 Maxar Technologies, USDA Farm Service Agency, Map Data (c) 2021',
@@ -69,11 +75,6 @@ var map = L.map('l_map', {
     layers: [sat,stands,boundary]
 });
 //var map = L.map('map').setView([40.55,-94.18], zoom:12,layers: [sat, g_map]);
-
-function onEachFeature(feature, layer) {
-	//console.log("Stand "+feature.properties.Name+"<br/>"+feature.properties.ACRES+" acres");
-    layer.bindPopup("Stand "+feature.properties.Name+"<br/>"+feature.properties.ACRES+" acres");
-}
 
 
 var baseMaps;
