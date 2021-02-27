@@ -109,8 +109,9 @@ setTimeout(function(){
         "esri/views/MapView",
         "esri/layers/FeatureLayer",
 	"esri/layers/TileLayer",
-	 "esri/layers/GeoJSONLayer"
-      ], function (Map, MapView, FeatureLayer,TileLayer,GeoJSONLayer) {
+	 "esri/layers/GeoJSONLayer",
+	 "esri/widgets/LayerList"
+      ], function (Map, MapView, FeatureLayer,TileLayer,GeoJSONLayer,LayerList) {
         var map = new Map({
           basemap: "satellite"
         });
