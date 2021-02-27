@@ -142,6 +142,8 @@ setTimeout(function(){
 		maxZoom: 20
 	  });
 	 
+        map.add(layer);
+	 
         var featureLayer1 = new FeatureLayer({     url:"https://services2.arcgis.com/bB9Y1bGKerz1PTl5/arcgis/rest/services/Commission_prop_footprint/FeatureServer"});
    
         map.add(featureLayer1);
