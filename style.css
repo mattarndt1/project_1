@@ -1,6 +1,6 @@
 #container{
   width: 100%; 
-  margin: .5% 2%;
+  margin: 0% .5%;
   position: relative;
   float: left;
 }
@@ -8,7 +8,7 @@
 .map_window { 
   height: 80%; 
   min-height: 200px;
-  width: 31%;
+  width: 32%;
   min-width: 175px;
   margin: .5%;
   position: relative;
