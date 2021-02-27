@@ -148,7 +148,7 @@ setTimeout(function(){
 		}
 	});
 	 
-        map.add(geojsonLayer);
+     //   map.add(geojsonLayer);
 	 
 	 var pop_template = {
           title: "Stand info",
@@ -188,7 +188,7 @@ setTimeout(function(){
 		
 	});
 	 
-        map.add(geojsonLayer);
+      //  map.add(geojsonLayer);
 	 
         var geojsonLayer = new GeoJSONLayer({
 	  url: "LCF_boundary_WGS84.geojson",
@@ -216,6 +216,14 @@ setTimeout(function(){
         });
 
         view.ui.add(toggle, "top-right");
+	 
+	 var layerList = new LayerList({
+		  view: view
+		});
+		// Adds widget below other elements in the top left corner of the view
+		view.ui.add(layerList, {
+		  position: "bottom-right"
+		});
 	       
 });
 
