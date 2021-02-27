@@ -144,14 +144,25 @@ setTimeout(function(){
 	 
         map.add(layer);
 	 
-        var featureLayer1 = new FeatureLayer({     url:"https://services2.arcgis.com/bB9Y1bGKerz1PTl5/arcgis/rest/services/Commission_prop_footprint/FeatureServer"});
-   
-        map.add(featureLayer1);
-   
-  	var featureLayer2 = new FeatureLayer({     url:"https://services2.arcgis.com/bB9Y1bGKerz1PTl5/arcgis/rest/services/Normal_Pool/FeatureServer"});
-   
-        map.add(featureLayer2);
-      
+        var geojsonLayer = new GeoJSONLayer({
+	  url: "contour_lines_10ft_simplified_WGS84.geojson"
+	});
+	 
+        map.add(geojsonLayer);
+	 
+        var geojsonLayer = new GeoJSONLayer({
+	  url: "stands_WGS84.geojson"
+	});
+	 
+        map.add(geojsonLayer);
+	 
+        var geojsonLayer = new GeoJSONLayer({
+	  url: "LCF_boundary_WGS84.geojson"
+	});
+	 
+        map.add(geojsonLayer);
+	 
+	       
 });
 
 
