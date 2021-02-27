@@ -149,7 +149,22 @@ setTimeout(function(){
         map.add(geojsonLayer);
 	 
 	 var pop_template = {
-          title: "Stand {Name} <br/> {ACRES} acres"
+          title: "Stand info",
+		 content: [
+            		{
+              			type: "fields",
+              			fieldInfos: [
+                			{
+					  fieldName: "Name",
+					  label: "Stand #"
+					},
+					{
+					  fieldName: "ACRES",
+					  label: "Acres"
+					}
+              			]
+            		}
+          	]
         };
 	 
         var geojsonLayer = new GeoJSONLayer({
