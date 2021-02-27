@@ -111,7 +111,7 @@ setTimeout(function(){
 	"esri/layers/TileLayer"
       ], function (Map, MapView, FeatureLayer,TileLayer) {
         var map = new Map({
-          basemap: "none"
+          basemap: "terrain"
         });
 	
 	
