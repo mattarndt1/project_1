@@ -103,7 +103,7 @@ setTimeout(function(){
 **
 ***************************/
 
-
+/*
  require([
         "esri/Map",
         "esri/views/MapView",
@@ -112,6 +112,13 @@ setTimeout(function(){
         var map = new Map({
           basemap: "hybrid"
         });
+	*/ 
+	 require(["esri/layers/TileLayer"], function(TileLayer) {
+	  var layer = new TileLayer({
+	    url: "https://services.arcgisonline.com/arcgis/rest/services/World_Terrain_Base/MapServer"
+	  });
+	  // Add layer to map
+	});
 
         var view = new MapView({
           container: "2d_map",
