@@ -110,8 +110,8 @@ setTimeout(function(){
         "esri/layers/FeatureLayer",
 	"esri/layers/TileLayer",
 	 "esri/layers/GeoJSONLayer",
-	 "esri/widgets/BasemapLayerList"
-      ], function (Map, MapView, FeatureLayer,TileLayer,GeoJSONLayer,BasemapLayerList) {
+	 "esri/widgets/BasemapToggle"
+      ], function (Map, MapView, FeatureLayer,TileLayer,GeoJSONLayer,BasemapToggle) {
         var map = new Map({
           basemap: "satellite"
         });
@@ -188,24 +188,12 @@ setTimeout(function(){
 	 
         map.add(geojsonLayer);
 	 
-	 var basemapLayerList = new BasemapLayerList({
-	  view: view
-	});
-	// Adds the widget below other elements in the top left corner of the view
-	view.ui.add(basemapLayerList, {
-	  position: "top-left"
-	});
-	 
-	 /*
-	 var layerList = new LayerList({
-	  view: view
-	});
-	// Adds widget below other elements in the top left corner of the view
-	view.ui.add(layerList, {
-	  position: "top-right",
-		width: "50px"
-	});
-	 */
+	 var toggle = new BasemapToggle({
+          view: view, 
+          nextBasemap: "topo-vector" 
+        });
+
+        view.ui.add(toggle, "top-right");
 	       
 });
 
