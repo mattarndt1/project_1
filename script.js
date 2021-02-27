@@ -26,6 +26,13 @@ var g_map = L.tileLayer('https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
 });
 //.addTo(map);
 
+var map = L.map('l_map', {
+	    center: [40.55,-94.18],
+	    zoom: 12,
+	    layers: [sat]
+	});
+
+
 //contour lines
 var contour_layer;
 var contours;
@@ -66,23 +73,9 @@ $.getJSON("LCF_boundary_WGS84.geojson",function(data){
 	    "opacity": 1,
 	    "fillOpacity": 0
 	 });
-	//.addTo(map);
 	  
   });
 
-
-
-var map;
-setTimeout(function(){
-	console.log("st"+stands);
-	console.log("bdry"+boundary);
-	map = L.map('l_map', {
-	    center: [40.55,-94.18],
-	    zoom: 12,
-	    layers: [sat,stands,boundary]
-	});
-	//var map = L.map('map').setView([40.55,-94.18], zoom:12,layers: [sat, g_map]);
-},3000);
 
 
 var baseMaps;
