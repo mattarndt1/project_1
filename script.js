@@ -103,22 +103,19 @@ setTimeout(function(){
 **
 ***************************/
 
-/*
+
  require([
         "esri/Map",
         "esri/views/MapView",
-        "esri/layers/FeatureLayer"
+        "esri/layers/FeatureLayer",
+	 "esri/layers/TileLayer"
       ], function (Map, MapView, FeatureLayer) {
         var map = new Map({
-          basemap: "hybrid"
+          basemap: "none"
         });
-	*/ 
-	 require(["esri/layers/TileLayer"], function(TileLayer) {
-	  var layer = new TileLayer({
-	    url: "https://services.arcgisonline.com/arcgis/rest/services/World_Terrain_Base/MapServer"
-	  });
-	  // Add layer to map
-	});
+	
+	
+	  
 
         var view = new MapView({
           container: "2d_map",
@@ -138,14 +135,22 @@ setTimeout(function(){
          * Add feature layer
          ********************/
 
+	 var layer = new TileLayer({
+	    	url: 'https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', 
+		attribution: 'Imagery from Google XYZ service; (c) 2021 Maxar Technologies, USDA Farm Service Agency, Map Data (c) 2021',
+		minZoom: 0,
+		maxZoom: 20"
+	  });
+	 
         var featureLayer1 = new FeatureLayer({     url:"https://services2.arcgis.com/bB9Y1bGKerz1PTl5/arcgis/rest/services/Commission_prop_footprint/FeatureServer"});
    
         map.add(featureLayer1);
    
-   var featureLayer2 = new FeatureLayer({     url:"https://services2.arcgis.com/bB9Y1bGKerz1PTl5/arcgis/rest/services/Normal_Pool/FeatureServer"});
+  	var featureLayer2 = new FeatureLayer({     url:"https://services2.arcgis.com/bB9Y1bGKerz1PTl5/arcgis/rest/services/Normal_Pool/FeatureServer"});
    
         map.add(featureLayer2);
-      });
+      
+});
 
 
 
