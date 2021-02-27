@@ -110,8 +110,8 @@ setTimeout(function(){
         "esri/layers/FeatureLayer",
 	"esri/layers/TileLayer",
 	 "esri/layers/GeoJSONLayer",
-	 "esri/widgets/LayerList"
-      ], function (Map, MapView, FeatureLayer,TileLayer,GeoJSONLayer,LayerList) {
+	 "esri/widgets/BasemapLayerList"
+      ], function (Map, MapView, FeatureLayer,TileLayer,GeoJSONLayer,BasemapLayerList) {
         var map = new Map({
           basemap: "satellite"
         });
@@ -195,6 +195,7 @@ setTimeout(function(){
 	view.ui.add(basemapLayerList, {
 	  position: "top-left"
 	});
+	 
 	 /*
 	 var layerList = new LayerList({
 	  view: view
