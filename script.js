@@ -160,11 +160,11 @@ setTimeout(function(){
 			  type: "simple",  // autocasts as new SimpleRenderer()
 			  symbol: {
 			    type: "simple-fill",  // autocasts as new SimpleFillSymbol()
-			    color: "#00ffff",
+			    color: "#ffff00",
 				opacity: .4,
 			    outline: {  // autocasts as new SimpleLineSymbol()
 			      width: 1.5,
-			      color: "$00ffff"
+			      color: "#ffff00"
 			    }
 			  }
 			}
@@ -174,7 +174,19 @@ setTimeout(function(){
         map.add(geojsonLayer);
 	 
         var geojsonLayer = new GeoJSONLayer({
-	  url: "LCF_boundary_WGS84.geojson"
+	  url: "LCF_boundary_WGS84.geojson",
+		renderer: {
+			  type: "simple",  // autocasts as new SimpleRenderer()
+			  symbol: {
+			    type: "simple-fill",  // autocasts as new SimpleFillSymbol()
+			    color: "#0000ff",
+			    style: "none",
+			    outline: {  // autocasts as new SimpleLineSymbol()
+			      width: 1.5,
+			      color: "#0000ff"
+			    }
+			  }
+			}
 	});
 	 
         map.add(geojsonLayer);
