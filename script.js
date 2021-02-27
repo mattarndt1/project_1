@@ -169,6 +169,7 @@ setTimeout(function(){
         var geojsonLayer = new GeoJSONLayer({
 	  url: "LCF_boundary_WGS84.geojson",
 		id: "Property Boundary",
+		title: "Property Boundary",
 		renderer: {
 			  type: "simple",  // autocasts as new SimpleRenderer()
 			  symbol: {
