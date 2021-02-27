@@ -168,7 +168,7 @@ setTimeout(function(){
 			    }
 			  }
 			}
-		}
+		
 	});
 	 
         map.add(geojsonLayer);
