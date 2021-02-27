@@ -108,8 +108,9 @@ setTimeout(function(){
         "esri/Map",
         "esri/views/MapView",
         "esri/layers/FeatureLayer",
-	"esri/layers/TileLayer"
-      ], function (Map, MapView, FeatureLayer,TileLayer) {
+	"esri/layers/TileLayer",
+	 "esri/layers/GeoJSONLayer"
+      ], function (Map, MapView, FeatureLayer,TileLayer,GeoJSONLayer) {
         var map = new Map({
           basemap: "terrain"
         });
