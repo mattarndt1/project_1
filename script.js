@@ -72,11 +72,11 @@ $.getJSON("LCF_boundary_WGS84.geojson",function(data){
 
 
 
-
+var map;
 setTimeout(function(){
 	console.log("st"+stands);
 	console.log("bdry"+boundary);
-	var map = L.map('l_map', {
+	map = L.map('l_map', {
 	    center: [40.55,-94.18],
 	    zoom: 12,
 	    layers: [sat,stands,boundary]
