@@ -28,7 +28,7 @@ var map = L.map('l_map', {
 //var map = L.map('map').setView([40.55,-94.18], zoom:12,layers: [sat, g_map]);
 
 function onEachFeature(feature, layer) {
-	console.log("Stand "+feature.properties.Name+"<br/>"+feature.properties.ACRES+" acres");
+	//console.log("Stand "+feature.properties.Name+"<br/>"+feature.properties.ACRES+" acres");
     layer.bindPopup("Stand "+feature.properties.Name+"<br/>"+feature.properties.ACRES+" acres");
 }
 
@@ -75,7 +75,7 @@ $.getJSON("LCF_boundary_WGS84.geojson",function(data){
 	 }).addTo(map);
 	  
   });
-
+/*
 var baseMaps;
 var overlays;
 
@@ -95,7 +95,7 @@ setTimeout(function(){
 
 	L.control.layers(baseMaps,overlays).addTo(map);
 }, 3500);
-
+*/
 
 /***************************
 **
