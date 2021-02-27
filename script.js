@@ -121,8 +121,8 @@ setTimeout(function(){
         var view = new MapView({
           container: "2d_map",
           map: map,
-	  center = [-94.18,40.55],  // Sets the center point of the view at a specified lon/lat
-	  zoom = 12  // Sets the zoom LOD to 13
+	  center: [-94.18,40.55],  // Sets the center point of the view at a specified lon/lat
+	  zoom: 12  // Sets the zoom LOD to 13
 /*
           extent: {
             // autocasts as new Extent()
