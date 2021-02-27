@@ -72,7 +72,7 @@ $.getJSON("LCF_boundary_WGS84.geojson",function(data){
 	    "weight": 3,
 	    "opacity": 1,
 	    "fillOpacity": 0
-	 });
+	 }).addTo(map);
 	  
   });
 
