@@ -139,17 +139,17 @@ setTimeout(function(){
          * Add feature layer
          ********************/
 
-	 var layer = new TileLayer({
-	    	url: 'https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', 
-		attribution: 'Imagery from Google XYZ service; (c) 2021 Maxar Technologies, USDA Farm Service Agency, Map Data (c) 2021',
-		minZoom: 0,
-		maxZoom: 20
-	  });
-	 
         map.add(layer);
 	 
         var geojsonLayer = new GeoJSONLayer({
-	  url: "contour_lines_10ft_simplified_WGS84.geojson"
+	  	url: "contour_lines_10ft_simplified_WGS84.geojson",
+		renderer: {
+			type: "simple",
+			symbol: {
+			  color: "#cccccc",
+			  type: "simple-line",
+			  style: "solid"
+			}
 	});
 	 
         map.add(geojsonLayer);
