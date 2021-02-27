@@ -112,7 +112,7 @@ setTimeout(function(){
 	 "esri/layers/GeoJSONLayer"
       ], function (Map, MapView, FeatureLayer,TileLayer,GeoJSONLayer) {
         var map = new Map({
-          basemap: "terrain"
+          basemap: "satellite"
         });
 	
 	
