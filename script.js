@@ -108,8 +108,8 @@ setTimeout(function(){
         "esri/Map",
         "esri/views/MapView",
         "esri/layers/FeatureLayer",
-	 "esri/layers/TileLayer"
-      ], function (Map, MapView, FeatureLayer) {
+	"esri/layers/TileLayer"
+      ], function (Map, MapView, FeatureLayer,TileLayer) {
         var map = new Map({
           basemap: "none"
         });
