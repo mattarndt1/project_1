@@ -113,8 +113,9 @@ setTimeout(function(){
 	"esri/layers/TileLayer",
 	 "esri/layers/GeoJSONLayer",
 	 "esri/widgets/BasemapToggle",
-	 "esri/widgets/LayerList"
-      ], function (Map, MapView, FeatureLayer,TileLayer,GeoJSONLayer,BasemapToggle,LayerList) {
+	 "esri/widgets/LayerList",
+	 "esri/widgets/Expand"
+      ], function (Map, MapView, FeatureLayer,TileLayer,GeoJSONLayer,BasemapToggle,LayerList,Expand) {
         var map = new Map({
           basemap: "satellite"
         });
@@ -227,6 +228,13 @@ setTimeout(function(){
 		view.ui.add(layerList, {
 		  position: "bottom-right"
 		});
+	 
+	 layerListExpand = new Expand({
+		  expandIconClass: "esri-icon-layer-list",  
+		  view: view,
+		  content: layerList
+		});
+		view.ui.add(layerListExpand, "bottom-right");
 	       
 });
 
