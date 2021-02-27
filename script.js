@@ -123,16 +123,7 @@ setTimeout(function(){
           map: map,
 	  center: [-94.18,40.55],  // Sets the center point of the view at a specified lon/lat
 	  zoom: 12  // Sets the zoom LOD to 13
-/*
-          extent: {
-            // autocasts as new Extent()
-            xmin: -10366387,
-            ymin: 4902434,
-            xmax: -10356735,
-            ymax: 4919960,
-            spatialReference: 102100
-          }
-	  */
+
         });
 
         /********************
@@ -147,7 +138,7 @@ setTimeout(function(){
 			  color: "#cccccc",
 			  type: "simple-line",
 			  style: "solid",
-				width: ".25px"
+				width: .25
 			}
 		}
 	});
@@ -160,10 +151,9 @@ setTimeout(function(){
 			  type: "simple",  // autocasts as new SimpleRenderer()
 			  symbol: {
 			    type: "simple-fill",  // autocasts as new SimpleFillSymbol()
-			    color: "#ffff00",
-				opacity: .4,
+			    color: [255,255,255,.2],
 			    outline: {  // autocasts as new SimpleLineSymbol()
-			      width: 1.5,
+			      width: 1,
 			      color: "#ffff00"
 			    }
 			  }
