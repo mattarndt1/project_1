@@ -148,10 +148,15 @@ setTimeout(function(){
 	 
         map.add(geojsonLayer);
 	 
+	 var pop_template = {
+          title: "Stand {Name} <br/> {ACRES} acres"
+        };
+	 
         var geojsonLayer = new GeoJSONLayer({
 	  	url: "stands_WGS84.geojson",
 		id: "Forest Stands",
 		title: "Forest Stands",
+		popupTemplate: pop_template,
 		renderer: {
 			  type: "simple",  // autocasts as new SimpleRenderer()
 			  symbol: {
