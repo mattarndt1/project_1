@@ -57,7 +57,7 @@ $.getJSON("stands_WGS84.geojson",function(data){
 	    "opacity": 1,
 	    "fillOpacity": .2,
    		onEachFeature: onEachFeature
-	 });
+	 }).addTo(map);
 	  
   });
 
@@ -72,7 +72,7 @@ $.getJSON("LCF_boundary_WGS84.geojson",function(data){
 	    "weight": 3,
 	    "opacity": 1,
 	    "fillOpacity": 0
-	 });
+	 }).addTo(map);
 	  
   });
 
@@ -93,7 +93,7 @@ setTimeout(function(){
 		"Forest Stands": stands,
 		"Contour Lines": contours};
 
-	L.control.layers(baseMaps,overlays).addTo(map);
+	L.control.layers(baseMaps,overlays);
 }, 3500);
 
 
