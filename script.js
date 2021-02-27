@@ -94,7 +94,7 @@ setTimeout(function(){
 		"Contour Lines": contours};
 
 	L.control.layers(baseMaps,overlays).addTo(map);
-}, 2500);
+}, 3500);
 
 
 /***************************
