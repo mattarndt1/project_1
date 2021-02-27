@@ -138,6 +138,7 @@ setTimeout(function(){
 	  	url: "contour_lines_10ft_simplified_WGS84.geojson",
 		id: "Contour Lines",
 		title: "Contour Lines",
+		visible: false,
 		renderer: {
 			type: "simple",
 			symbol: {
@@ -149,7 +150,7 @@ setTimeout(function(){
 		}
 	});
 	 
-     //   map.add(geojsonLayer);
+        map.add(geojsonLayer);
 	 
 	 var pop_template = {
           title: "Stand info",
@@ -174,6 +175,7 @@ setTimeout(function(){
 	  	url: "stands_WGS84.geojson",
 		id: "Forest Stands",
 		title: "Forest Stands",
+		visible: false,
 		popupTemplate: pop_template,
 		renderer: {
 			  type: "simple",  // autocasts as new SimpleRenderer()
@@ -189,7 +191,7 @@ setTimeout(function(){
 		
 	});
 	 
-      //  map.add(geojsonLayer);
+        map.add(geojsonLayer);
 	 
         var geojsonLayer = new GeoJSONLayer({
 	  url: "LCF_boundary_WGS84.geojson",
