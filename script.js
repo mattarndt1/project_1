@@ -57,7 +57,7 @@ $.getJSON("stands_WGS84.geojson",function(data){
 	    "opacity": 1,
 	    "fillOpacity": .2,
    		onEachFeature: onEachFeature
-	 }).addTo(map);
+	 });
 	  
   });
 
@@ -72,10 +72,10 @@ $.getJSON("LCF_boundary_WGS84.geojson",function(data){
 	    "weight": 3,
 	    "opacity": 1,
 	    "fillOpacity": 0
-	 }).addTo(map);
+	 });
 	  
   });
-/*
+
 var baseMaps;
 var overlays;
 
@@ -95,7 +95,7 @@ setTimeout(function(){
 
 	L.control.layers(baseMaps,overlays).addTo(map);
 }, 3500);
-*/
+
 
 /***************************
 **
