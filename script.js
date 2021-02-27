@@ -112,8 +112,9 @@ setTimeout(function(){
         "esri/layers/FeatureLayer",
 	"esri/layers/TileLayer",
 	 "esri/layers/GeoJSONLayer",
-	 "esri/widgets/BasemapToggle"
-      ], function (Map, MapView, FeatureLayer,TileLayer,GeoJSONLayer,BasemapToggle) {
+	 "esri/widgets/BasemapToggle",
+	 "esri/widgets/LayerList"
+      ], function (Map, MapView, FeatureLayer,TileLayer,GeoJSONLayer,BasemapToggle,LayerList) {
         var map = new Map({
           basemap: "satellite"
         });
