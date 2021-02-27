@@ -138,8 +138,6 @@ setTimeout(function(){
         /********************
          * Add feature layer
          ********************/
-
-        map.add(layer);
 	 
         var geojsonLayer = new GeoJSONLayer({
 	  	url: "contour_lines_10ft_simplified_WGS84.geojson",
