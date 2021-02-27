@@ -188,15 +188,23 @@ setTimeout(function(){
 	 
         map.add(geojsonLayer);
 	 
+	 var basemapLayerList = new BasemapLayerList({
+	  view: view
+	});
+	// Adds the widget below other elements in the top left corner of the view
+	view.ui.add(basemapLayerList, {
+	  position: "top-left"
+	});
+	 /*
 	 var layerList = new LayerList({
 	  view: view
 	});
 	// Adds widget below other elements in the top left corner of the view
 	view.ui.add(layerList, {
 	  position: "top-right",
-		{width: "50px"}
+		width: "50px"
 	});
-	 
+	 */
 	       
 });
 
