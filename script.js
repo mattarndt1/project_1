@@ -96,29 +96,6 @@ setTimeout(function(){
 	L.control.layers(baseMaps,overlays).addTo(map);
 }, 2500);
 
-/*
-map.on('zoomend', function() {
-	var zoomlevel = map.getZoom();
-	
-	console.log("zoom");
-	//console.log(contours);
-	
-	
-	
-	
-	if (zoomlevel  >=14  && ( ! map.hasLayer(contour_layer))){
-		
-	contour_layer = {"contour lines": contours};
-	L.control.layers(contour_layer).addTo(map);
-		console.log(contour_layer);
-		console.log("add");
-	}
-	else if (zoomlevel  <14 && map.hasLayer(contour_layer)){
-		//contour_layer.clearLayers();
-		
-		L.control.layers(contour_layer).removeFrom(map);
-	}
-});*/
 
 /***************************
 **
@@ -162,4 +139,51 @@ map.on('zoomend', function() {
    
         map.add(featureLayer2);
       });
+
+
+
+
+/***************************
+**
+**	ArcGIS 3D API
+**
+***************************/
+
+
+ require([
+        "esri/Map",
+        "esri/views/MapView",
+        "esri/layers/FeatureLayer"
+      ], function (Map, MapView, FeatureLayer) {
+        var map = new Map({
+          basemap: "hybrid"
+        });
+
+        var view = new MapView({
+          container: "3d_map",
+          map: map,
+
+          extent: {
+            // autocasts as new Extent()
+            xmin: -10366387,
+            ymin: 4902434,
+            xmax: -10356735,
+            ymax: 4919960,
+            spatialReference: 102100
+          }
+        });
+
+        /********************
+         * Add feature layer
+         ********************/
+
+        var featureLayer1 = new FeatureLayer({     url:"https://services2.arcgis.com/bB9Y1bGKerz1PTl5/arcgis/rest/services/Commission_prop_footprint/FeatureServer"});
+   
+        map.add(featureLayer1);
+   
+   var featureLayer2 = new FeatureLayer({     url:"https://services2.arcgis.com/bB9Y1bGKerz1PTl5/arcgis/rest/services/Normal_Pool/FeatureServer"});
+   
+        map.add(featureLayer2);
+      });
+
 
