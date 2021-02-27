@@ -133,6 +133,7 @@ setTimeout(function(){
 	 
         var geojsonLayer = new GeoJSONLayer({
 	  	url: "contour_lines_10ft_simplified_WGS84.geojson",
+		id: "Contour Lines",
 		renderer: {
 			type: "simple",
 			symbol: {
@@ -148,6 +149,7 @@ setTimeout(function(){
 	 
         var geojsonLayer = new GeoJSONLayer({
 	  	url: "stands_WGS84.geojson",
+		id: "Forest Stands",
 		renderer: {
 			  type: "simple",  // autocasts as new SimpleRenderer()
 			  symbol: {
@@ -166,6 +168,7 @@ setTimeout(function(){
 	 
         var geojsonLayer = new GeoJSONLayer({
 	  url: "LCF_boundary_WGS84.geojson",
+		id: "Property Boundary",
 		renderer: {
 			  type: "simple",  // autocasts as new SimpleRenderer()
 			  symbol: {
@@ -187,7 +190,8 @@ setTimeout(function(){
 	});
 	// Adds widget below other elements in the top left corner of the view
 	view.ui.add(layerList, {
-	  position: "top-left"
+	  position: "top-right",
+		width: "50px"
 	});
 	 
 	       
