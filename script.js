@@ -224,16 +224,16 @@ setTimeout(function(){
 	 var layerList = new LayerList({
 		  view: view
 		});
-		// Adds widget below other elements in the top left corner of the view
-	//	view.ui.add(layerList, { position: "bottom-right"});
+	view.ui.add(layerList, { position: "bottom-right"});
 	 
+	 /*
 	 layerListExpand = new Expand({
 		  expandIconClass: "esri-icon-layer-list",  
 		  view: view,
 		  content: layerList
 		});
 		view.ui.add(layerListExpand, "bottom-right");
-	       
+	     */  
 });
 
 
