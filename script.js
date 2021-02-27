@@ -137,7 +137,7 @@ map.on('zoomend', function() {
         });
 
         var view = new MapView({
-          container: "viewDiv",
+          container: "2d_map",
           map: map,
 
           extent: {
