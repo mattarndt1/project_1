@@ -182,14 +182,12 @@ setTimeout(function(){
 	 
         map.add(geojsonLayer);
 	 
-	 const basemapGallery = new BasemapGallery({
-	  view: view,
-	  container: document.createElement("div")
+	 var layerList = new LayerList({
+	  view: view
 	});
-
-	// Add the widget to the top-right corner of the view
-	view.ui.add(basemapGallery, {
-	  position: "top-right"
+	// Adds widget below other elements in the top left corner of the view
+	view.ui.add(layerList, {
+	  position: "top-left"
 	});
 	 
 	       
