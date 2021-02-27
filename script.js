@@ -20,19 +20,6 @@ var g_map = L.tileLayer('https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
 });
 //.addTo(map);
 
-var map = L.map('l_map', {
-    center: [40.55,-94.18],
-    zoom: 12,
-    layers: [g_map,sat]
-});
-//var map = L.map('map').setView([40.55,-94.18], zoom:12,layers: [sat, g_map]);
-
-function onEachFeature(feature, layer) {
-	//console.log("Stand "+feature.properties.Name+"<br/>"+feature.properties.ACRES+" acres");
-    layer.bindPopup("Stand "+feature.properties.Name+"<br/>"+feature.properties.ACRES+" acres");
-}
-
-
 
 //contour lines
 var contour_layer;
@@ -57,7 +44,7 @@ $.getJSON("stands_WGS84.geojson",function(data){
 	    "opacity": 1,
 	    "fillOpacity": .2,
    		onEachFeature: onEachFeature
-	 }).addTo(map);
+	 });
 	  
   });
 
@@ -72,9 +59,22 @@ $.getJSON("LCF_boundary_WGS84.geojson",function(data){
 	    "weight": 3,
 	    "opacity": 1,
 	    "fillOpacity": 0
-	 }).addTo(map);
+	 });
 	  
   });
+
+var map = L.map('l_map', {
+    center: [40.55,-94.18],
+    zoom: 12,
+    layers: [sat,stands,boundary]
+});
+//var map = L.map('map').setView([40.55,-94.18], zoom:12,layers: [sat, g_map]);
+
+function onEachFeature(feature, layer) {
+	//console.log("Stand "+feature.properties.Name+"<br/>"+feature.properties.ACRES+" acres");
+    layer.bindPopup("Stand "+feature.properties.Name+"<br/>"+feature.properties.ACRES+" acres");
+}
+
 
 var baseMaps;
 var overlays;
@@ -93,7 +93,7 @@ setTimeout(function(){
 		"Forest Stands": stands,
 		"Contour Lines": contours};
 
-	L.control.layers(baseMaps,overlays);
+	L.control.layers(baseMaps,overlays).addTo(map);
 }, 3500);
 
 
