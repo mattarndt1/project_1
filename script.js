@@ -82,7 +82,7 @@ setTimeout(function(){
 	    layers: [sat,stands,boundary]
 	});
 	//var map = L.map('map').setView([40.55,-94.18], zoom:12,layers: [sat, g_map]);
-},1000);
+},3000);
 
 
 var baseMaps;
