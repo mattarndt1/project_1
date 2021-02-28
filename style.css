@@ -13,7 +13,7 @@
   margin: .5%;
   position: relative;
   float: left;
-  z-index: -1;
+  z-index: 0;
 }
 
 .map_window_inner { 
