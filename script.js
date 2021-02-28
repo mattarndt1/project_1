@@ -235,21 +235,22 @@ setTimeout(function(){
 		});
 	arc_2d_view.ui.add(arc_2d_layerListExpand, "bottom-right");
 	
-	 /*
+	 */
 	 var arc_2d_basemapLayerList = new BasemapLayerList({
 		  view: arc_2d_view,
 		 container: document.createElement("div")
 		});
 	 
 	 var arc_2d_layerListExpand = new Expand({
-		//  expandIconClass: "esri-icon-layer-list",  
+		  expandIconClass: "esri-icon-layers",  
 		  view: arc_2d_view,
 		 //content: arc_2d_basemapLayerList,
-		 content: arc_2d_basemapLayerList.container
+		 content: arc_2d_basemapLayerList.container,
+		 container: "2d_map_inner"
 		});
 	arc_2d_view.ui.add(arc_2d_layerListExpand, "top-right");
 		
-		*/
+		/*
 	 var layerList = new LayerList({
 	  container: document.createElement("div"),
 	  view: arc_2d_view
@@ -262,7 +263,7 @@ setTimeout(function(){
 	  content: layerList
 	});
 	arc_2d_view.ui.add(layerListExpand, "top-right");
-	     
+	     */
 });
 
 
