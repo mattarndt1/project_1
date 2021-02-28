@@ -233,7 +233,7 @@ setTimeout(function(){
 		});
 	 
 	 var arc_2d_layerListExpand = new Expand({
-		  expandIconClass: "esri-icon-layer-list",  
+		//  expandIconClass: "esri-icon-layer-list",  
 		  view: arc_2d_view,
 		  content: arc_2d_layerList
 		});
