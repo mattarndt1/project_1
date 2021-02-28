@@ -11,7 +11,7 @@ function onEachFeature(feature, layer) {
 
 
   // load Google Satellite
-var sat = L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+var l_sat = L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
 	attribution: 'Imagery from Google XYZ service; (c) 2021 Maxar Technologies, USDA Farm Service Agency, Map Data (c) 2021',
 	minZoom: 0,
 	maxZoom: 20
@@ -19,26 +19,26 @@ var sat = L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
 //.addTo(map);
 
   // load Google Map
-var g_map = L.tileLayer('https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+var l_g_map = L.tileLayer('https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
 	attribution: 'Imagery from Google XYZ service; (c) 2021 Maxar Technologies, USDA Farm Service Agency, Map Data (c) 2021',
 	minZoom: 0,
 	maxZoom: 20
 });
 //.addTo(map);
 
-var map = L.map('l_map', {
+var l_map = L.map('l_map', {
 	    center: [40.55,-94.18],
 	    zoom: 12,
-	    layers: [sat]
+	    layers: [l_sat]
 	});
 
 
 //contour lines
-var contour_layer;
-var contours;
+var l_contour_layer;
+var l_contours;
 $.getJSON("contour_lines_10ft_simplified_WGS84.geojson",function(data){
 	 
-	contours = L.geoJson(data,{	     
+	l_contours = L.geoJson(data,{	     
 	    "color": "#cccccc",
 	    "weight": .25,
 	    "opacity": 1
@@ -46,11 +46,11 @@ $.getJSON("contour_lines_10ft_simplified_WGS84.geojson",function(data){
   });
 
 //forest stands
-var stands;
+var l_stands;
 $.getJSON("stands_WGS84.geojson",function(data){
 	  
     // add GeoJSON layer to the map once the file is loaded
-	stands = L.geoJson(data,{	     
+	l_stands = L.geoJson(data,{	     
 	    "color": "#ffff00",
 	    "weight": 1.5,
 	    "opacity": 1,
@@ -64,38 +64,38 @@ $.getJSON("stands_WGS84.geojson",function(data){
 
 
 //property boundary
-var boundary;
+var l_boundary;
 $.getJSON("LCF_boundary_WGS84.geojson",function(data){
     // add GeoJSON layer to the map once the file is loaded
-	boundary =  L.geoJson(data,{	     
+	l_boundary =  L.geoJson(data,{	     
 	    "color": "#0000ff",
 	    "weight": 3,
 	    "opacity": 1,
 	    "fillOpacity": 0
-	 }).addTo(map);
+	 }).addTo(l_map);
 	  
   });
 
 
 
-var baseMaps;
-var overlays;
+var l_baseMaps;
+var l_overlays;
 
 setTimeout(function(){
-	stands.bringToFront();
-	boundary.bringToFront();
+	l_stands.bringToFront();
+	l_boundary.bringToFront();
 	
-	baseMaps = {
-	    "Google Map": g_map,
-	    "Google Satellite": sat
+	l_baseMaps = {
+	    "Google Map": l_g_map,
+	    "Google Satellite": l_sat
 	};
 
-	overlays = {
-	    "Property Boundary": boundary,
-		"Forest Stands": stands,
-		"Contour Lines": contours};
+	l_overlays = {
+	    "Property Boundary": l_boundary,
+		"Forest Stands": l_stands,
+		"Contour Lines": l_contours};
 
-	L.control.layers(baseMaps,overlays).addTo(map);
+	L.control.layers(l_baseMaps,l_overlays).addTo(l_map);
 }, 3500);
 
 
@@ -113,19 +113,20 @@ setTimeout(function(){
 	"esri/layers/TileLayer",
 	 "esri/layers/GeoJSONLayer",
 	 "esri/widgets/BasemapToggle",
+	 "esri/widgets/BasemapLayerList",
 	 "esri/widgets/LayerList",
 	 "esri/widgets/Expand"
-      ], function (Map, MapView, FeatureLayer,TileLayer,GeoJSONLayer,BasemapToggle,LayerList,Expand) {
-        var map = new Map({
+      ], function (Map, MapView, FeatureLayer,TileLayer,GeoJSONLayer,BasemapToggle,BasemapLayerList,LayerList,Expand) {
+        var arc_2d_map = new Map({
           basemap: "satellite"
         });
 	
 	
 	  
 
-        var view = new MapView({
+        var arc_2d_view = new MapView({
           container: "2d_map",
-          map: map,
+          map: arc_2d_map,
 	  center: [-94.18,40.55],  // Sets the center point of the view at a specified lon/lat
 	  zoom: 12  // Sets the zoom LOD to 13
 
@@ -135,7 +136,7 @@ setTimeout(function(){
          * Add feature layer
          ********************/
 	 
-        var geojsonLayer = new GeoJSONLayer({
+        var arc_2d_contour_geojsonLayer = new GeoJSONLayer({
 	  	url: "contour_lines_10ft_simplified_WGS84.geojson",
 		id: "Contour Lines",
 		title: "Contour Lines",
@@ -151,9 +152,9 @@ setTimeout(function(){
 		}
 	});
 	 
-        map.add(geojsonLayer);
+        arc_2d_map.add(arc_2d_contour_geojsonLayer);
 	 
-	 var pop_template = {
+	 var arc_2d_pop_template = {
           title: "Stand info",
 		 content: [
             		{
@@ -172,7 +173,7 @@ setTimeout(function(){
           	]
         };
 	 
-        var geojsonLayer = new GeoJSONLayer({
+        var arc_2d_stands_geojsonLayer = new GeoJSONLayer({
 	  	url: "stands_WGS84.geojson",
 		id: "Forest Stands",
 		title: "Forest Stands",
@@ -192,9 +193,9 @@ setTimeout(function(){
 		
 	});
 	 
-        map.add(geojsonLayer);
+        map.add(arc_2d_stands_geojsonLayer);
 	 
-        var geojsonLayer = new GeoJSONLayer({
+        var arc_2d_bdry_geojsonLayer = new GeoJSONLayer({
 	  url: "LCF_boundary_WGS84.geojson",
 		id: "Property Boundary",
 		title: "Property Boundary",
@@ -212,28 +213,33 @@ setTimeout(function(){
 			}
 	});
 	 
-        map.add(geojsonLayer);
-	 
-	 var toggle = new BasemapToggle({
-          view: view, 
+        map.add(arc_2d_bdry_geojsonLayer);
+	/* 
+	 var arc_2d_toggle = new BasemapToggle({
+          view: arc_2d_view, 
           nextBasemap: "topo-vector" 
         });
 
-        view.ui.add(toggle, "top-right");
+        arc_2d_view.ui.add(arc_2d_toggle, "top-right");
 	 
-	 var layerList = new LayerList({
-		  view: view
+	 var arc_2d_layerList = new LayerList({
+		  view: arc_2d_view
 		});
-	view.ui.add(layerList, { position: "bottom-right"});
+	arc_2d_view.ui.add(arc_2d_layerList, { position: "bottom-right"});
+	*/ 
 	 
-	 /*
-	 layerListExpand = new Expand({
+	 var arc_2d_basemapLayerList = new BasemapLayerList({
+		  view: arc_2d_view
+		});
+	 
+	 var arc_2d_layerListExpand = new Expand({
 		  expandIconClass: "esri-icon-layer-list",  
-		  view: view,
-		  content: layerList
+		  view: arc_2d_view,
+		  content: arc_2d_layerList
 		});
-		view.ui.add(layerListExpand, "bottom-right");
-	     */  
+	arc_2d_view.ui.add(arc_2d_layerListExpand, "top-right");
+	 
+	     
 });
 
 
