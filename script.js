@@ -214,7 +214,7 @@ setTimeout(function(){
 	});
 	 
         arc_2d_map.add(arc_2d_bdry_geojsonLayer);
-	/* 
+	 
 	 var arc_2d_toggle = new BasemapToggle({
           view: arc_2d_view, 
           nextBasemap: "topo-vector" 
@@ -225,9 +225,16 @@ setTimeout(function(){
 	 var arc_2d_layerList = new LayerList({
 		  view: arc_2d_view
 		});
-	arc_2d_view.ui.add(arc_2d_layerList, { position: "bottom-right"});
-	*/ 
+	//arc_2d_view.ui.add(arc_2d_layerList, { position: "bottom-right"});
 	 
+	 
+	 var arc_2d_layerListExpand = new Expand({
+		  view: arc_2d_view,
+		 content: arc_2d_layerList.container
+		});
+	arc_2d_view.ui.add(arc_2d_layerListExpand, "bottom-right");
+	
+	 /*
 	 var arc_2d_basemapLayerList = new BasemapLayerList({
 		  view: arc_2d_view,
 		 container: document.createElement("div")
@@ -240,6 +247,8 @@ setTimeout(function(){
 		 content: arc_2d_basemapLayerList.container
 		});
 	arc_2d_view.ui.add(arc_2d_layerListExpand, "top-right");
+		
+		*/
 	 
 	     
 });
