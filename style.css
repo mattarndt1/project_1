@@ -15,3 +15,11 @@
   float: left;
 }
 
+.map_window_inner { 
+  height: 75%; 
+  width: 50%;
+  margin: 5%;
+  position: relative;
+  float: left;
+}
+
