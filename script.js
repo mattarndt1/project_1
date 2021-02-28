@@ -214,7 +214,7 @@ setTimeout(function(){
 	});
 	 
         arc_2d_map.add(arc_2d_bdry_geojsonLayer);
-/*	 
+ 
 	 var arc_2d_toggle = new BasemapToggle({
           view: arc_2d_view, 
           nextBasemap: "topo-vector" 
@@ -235,7 +235,14 @@ setTimeout(function(){
 		});
 	arc_2d_view.ui.add(arc_2d_layerListExpand, "bottom-right");
 	
-	 */
+	 var elements = document.getElementsByClassName('esri-expand__container--expanded');
+                    elements[0].style.position = "relative";
+                    elements[0].style.float = "left";
+	 
+	 var elements = document.getElementsByClassName('esri-expand__mask--expanded');
+                    elements[0].style.position = "relative";
+                    elements[0].style.float = "left";
+	/*
 	 var arc_2d_basemapLayerList = new BasemapLayerList({
 		  view: arc_2d_view,
 		 container: document.createElement("div")
@@ -246,8 +253,18 @@ setTimeout(function(){
 		  view: arc_2d_view,
 		 //content: arc_2d_basemapLayerList,
 		 content: arc_2d_basemapLayerList.container,
-		 container: "2d_map_inner"
-		});
+		 container: "2d_map_inner",
+		 style:{
+			 
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    margin: 0;
+    height: 100%;
+    background: #fff;
+    z-index: 1;
+    overflow: auto;
+		}
 	arc_2d_view.ui.add(arc_2d_layerListExpand, "top-right");
 		
 		/*
