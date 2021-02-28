@@ -226,15 +226,15 @@ setTimeout(function(){
 		  view: arc_2d_view,
 		 container: "2d_map_window_inner"
 		});
-	//arc_2d_view.ui.add(arc_2d_layerList, { position: "bottom-right"});
+	arc_2d_view.ui.add(arc_2d_layerList, { position: "bottom-right"});
 	 
-	 
+	/* 
 	 var arc_2d_layerListExpand = new Expand({
 		  view: arc_2d_view,
 		 content: "2d_map_window_inner"
 		});
 	arc_2d_view.ui.add(arc_2d_layerListExpand, "bottom-right");
-	 
+	*/ 
 	/*
 	 var arc_2d_basemapLayerList = new BasemapLayerList({
 		  view: arc_2d_view,
