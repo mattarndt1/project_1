@@ -224,14 +224,14 @@ setTimeout(function(){
 	 
 	 var arc_2d_layerList = new LayerList({
 		  view: arc_2d_view,
-		 container: document.getElementById("2d_map").appendChild(document.createElement("div"))
+		 container: "2d_map_window_inner"
 		});
 	//arc_2d_view.ui.add(arc_2d_layerList, { position: "bottom-right"});
 	 
 	 
 	 var arc_2d_layerListExpand = new Expand({
 		  view: arc_2d_view,
-		 content: arc_2d_layerList.container
+		 content: "2d_map_window_inner"
 		});
 	arc_2d_view.ui.add(arc_2d_layerListExpand, "bottom-right");
 	
