@@ -235,7 +235,7 @@ setTimeout(function(){
 	 var arc_2d_layerListExpand = new Expand({
 		//  expandIconClass: "esri-icon-layer-list",  
 		  view: arc_2d_view,
-		  content: arc_2d_layerList
+		  content: arc_2d_basemaplayerList
 		});
 	arc_2d_view.ui.add(arc_2d_layerListExpand, "top-right");
 	 
