@@ -193,7 +193,7 @@ setTimeout(function(){
 		
 	});
 	 
-        map.add(arc_2d_stands_geojsonLayer);
+        arc_2d_map.add(arc_2d_stands_geojsonLayer);
 	 
         var arc_2d_bdry_geojsonLayer = new GeoJSONLayer({
 	  url: "LCF_boundary_WGS84.geojson",
@@ -213,7 +213,7 @@ setTimeout(function(){
 			}
 	});
 	 
-        map.add(arc_2d_bdry_geojsonLayer);
+        arc_2d_map.add(arc_2d_bdry_geojsonLayer);
 	/* 
 	 var arc_2d_toggle = new BasemapToggle({
           view: arc_2d_view, 
