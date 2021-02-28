@@ -229,7 +229,9 @@ setTimeout(function(){
 	*/ 
 	 
 	 var arc_2d_basemapLayerList = new BasemapLayerList({
-		  view: arc_2d_view
+		  view: arc_2d_view,
+  		//container: document.createElement("div")
+  		container: "2d_map"
 		});
 	 
 	 var arc_2d_layerListExpand = new Expand({
