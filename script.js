@@ -250,14 +250,15 @@ setTimeout(function(){
 	arc_2d_view.ui.add(arc_2d_layerListExpand, "top-right");
 		
 		*/
-	 layerList = new LayerList({
+	 var layerList = new LayerList({
 	  container: document.createElement("div"),
 	  view: arc_2d_view
 	});
-	layerListExpand = new Expand({
+	var layerListExpand = new Expand({
 	  expandIconClass: "esri-icon-layer-list",  // see https://developers.arcgis.com/javascript/latest/guide/esri-icon-font/
 	  // expandTooltip: "Expand LayerList", // optional, defaults to "Expand" for English locale
 	  view: arc_2d_view,
+	  container: "2d_map_inner",
 	  content: layerList
 	});
 	arc_2d_view.ui.add(layerListExpand, "top-right");
