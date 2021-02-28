@@ -23,16 +23,3 @@
   float: right;
 }
 
-.esri-expand__container--expanded {
-      position: relative;
-    float: right;
-      z-index: 2;
-
-    }
-
-    .esri-expand__mask--expanded {
-      position: relative;
-    float: right;
-      z-index: 2;
-    }
-
