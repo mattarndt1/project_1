@@ -178,7 +178,7 @@ setTimeout(function(){
 		id: "Forest Stands",
 		title: "Forest Stands",
 		visible: false,
-		popupTemplate: pop_template,
+		popupTemplate: arc_2d_pop_template,
 		renderer: {
 			  type: "simple",  // autocasts as new SimpleRenderer()
 			  symbol: {
