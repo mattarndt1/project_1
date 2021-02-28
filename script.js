@@ -229,16 +229,14 @@ setTimeout(function(){
 	*/ 
 	 
 	 var arc_2d_basemapLayerList = new BasemapLayerList({
-		  view: arc_2d_view
-  		//container: document.createElement("div")
-  		//container: "2d_map"
+		  view: arc_2d_view,
+ 			 container: document.createElement("div")
 		});
 	 
 	 var arc_2d_layerListExpand = new Expand({
 		//  expandIconClass: "esri-icon-layer-list",  
 		  view: arc_2d_view,
-		  content: arc_2d_basemapLayerList,
-  			container: "2d_map"
+		  content: arc_2d_basemapLayerList
 		});
 	arc_2d_view.ui.add(arc_2d_layerListExpand, "top-right");
 	 
