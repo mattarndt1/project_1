@@ -234,14 +234,7 @@ setTimeout(function(){
 		 content: "2d_map_window_inner"
 		});
 	arc_2d_view.ui.add(arc_2d_layerListExpand, "bottom-right");
-	
-	 var elements = document.getElementsByClassName('esri-expand__container--expanded');
-                    elements[0].style.position = "relative";
-                    elements[0].style.float = "left";
 	 
-	 var elements = document.getElementsByClassName('esri-expand__mask--expanded');
-                    elements[0].style.position = "relative";
-                    elements[0].style.float = "left";
 	/*
 	 var arc_2d_basemapLayerList = new BasemapLayerList({
 		  view: arc_2d_view,
