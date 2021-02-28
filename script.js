@@ -224,7 +224,7 @@ setTimeout(function(){
 	 
 	 var arc_2d_layerList = new LayerList({
 		  view: arc_2d_view,
-		 container: "2d_map"
+		 container: document.getElementById("2d_map").appendChild(document.createElement("div"));
 		});
 	//arc_2d_view.ui.add(arc_2d_layerList, { position: "bottom-right"});
 	 
