@@ -223,7 +223,8 @@ setTimeout(function(){
         arc_2d_view.ui.add(arc_2d_toggle, "top-right");
 	 
 	 var arc_2d_layerList = new LayerList({
-		  view: arc_2d_view
+		  view: arc_2d_view,
+		 container: "2d_map"
 		});
 	//arc_2d_view.ui.add(arc_2d_layerList, { position: "bottom-right"});
 	 
