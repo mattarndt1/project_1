@@ -237,7 +237,7 @@ setTimeout(function(){
 		//  expandIconClass: "esri-icon-layer-list",  
 		  view: arc_2d_view,
 		 //content: arc_2d_basemapLayerList,
-		 content: basemapGallery.container
+		 content: arc_2d_basemapLayerList.container
 		});
 	arc_2d_view.ui.add(arc_2d_layerListExpand, "top-right");
 	 
