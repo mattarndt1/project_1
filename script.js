@@ -323,12 +323,12 @@ require([
 	*/
 	      var LC_cam = new Camera({
 		position: [
-			-94.18,
-			40.55,
-			9000// elevation in meters
+			-94.58,
+			40.15,
+			3500// elevation in meters
 		],
-		tilt: 0,
-		heading: 0,
+		tilt: 60,
+		heading: 42,
 		fov: 90
 	      });
 	
@@ -337,16 +337,7 @@ require([
 	        map: arc_3d_map, // References the map object created in step 3
         	viewingMode:"global",
 		camera: LC_cam,
-		center: [-94.18,40.5],
-		environment: {
-		    lighting: {
-		      date: new Date(),
-		      directShadowsEnabled: true,
-		      // don't update the view time when user pans.
-		      // The clock widget drives the time
-		      cameraTrackingEnabled: false
-		    }
-		}
+		center: [-94.18,40.5]
 	  });
 
         /********************
