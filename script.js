@@ -302,8 +302,12 @@ require([
       "esri/Camera",
       "esri/widgets/Home",
       "esri/layers/GeoJSONLayer",
+	 "esri/widgets/BasemapToggle",
+	 "esri/widgets/BasemapLayerList",
+	 "esri/widgets/LayerList",
+	 "esri/widgets/Expand",
       "dojo/domReady!"
-    ], function(Map,WebScene, SceneView, Camera, Home, GeoJSONLayer) {
+    ], function(Map,WebScene, SceneView, Camera, Home, GeoJSONLayer,BasemapToggle,BasemapLayerList,LayerList,Expand) {
 
     
           var arc_3d_map = new Map({
