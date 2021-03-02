@@ -312,9 +312,7 @@ require([
     
           var arc_3d_map = new Map({
 	    basemap: "satellite",
-	    ground: "world-elevation",
-		  center: [-94.18,40.55],  // Sets the center point of the view at a specified lon/lat
-		  zoom: 12  // Sets the zoom LOD to 13
+	    ground: "world-elevation"
 	  });
 	/*
 	var scene = new WebScene({
@@ -322,7 +320,7 @@ require([
 		 id:"8046207c1c214b5587230f5e5f8efc77" 
 		}
 	      });
-	*/
+	
 	      var LC_cam = new Camera({
 		position: [
 			-94.18,
@@ -333,7 +331,7 @@ require([
 		heading: 0,
 		fov: 90
 	      });
-	
+	*/
 	  var arc_3d_view = new SceneView({
 	    container: "3d_map", // Reference to the DOM node that will contain the view
 	    map: arc_3d_map // References the map object created in step 3
