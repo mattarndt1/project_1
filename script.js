@@ -481,7 +481,7 @@ require([
 
 
 		view.ui.add(homeBtn, "top-left");
-
+/*
 		[fen, bh, dwntn].forEach(function(button) {
 		  button.style.display = 'flex';
 		  view.ui.add(button, 'top-right');
@@ -510,5 +510,5 @@ require([
 	      });
 	    });
 
-
+*/
     });
