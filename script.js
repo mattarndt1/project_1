@@ -36,6 +36,21 @@ var l_map = L.map('l_map', {
 //contour lines
 var l_contour_layer;
 var l_contours;
+
+
+fetch(
+ "contour_lines_10ft_simplified_WGS84.geojson"
+).then(
+  res => res.json()
+).then(
+  l_contours = data => L.geoJson(data,{	     
+	    "color": "#cccccc",
+	    "weight": .25,
+	    "opacity": 1
+	      });
+)
+
+/*
 $.getJSON("contour_lines_10ft_simplified_WGS84.geojson",function(data){
 	 
 	l_contours = L.geoJson(data,{	     
@@ -44,9 +59,26 @@ $.getJSON("contour_lines_10ft_simplified_WGS84.geojson",function(data){
 	    "opacity": 1
 	      });
   });
+  */
 
 //forest stands
 var l_stands;
+
+fetch(
+ "stands_WGS84.geojson"
+).then(
+  res => res.json()
+).then(
+  l_stands = data => L.geoJson(data,{	     
+	    "color": "#ffff00",
+	    "weight": 1.5,
+	    "opacity": 1,
+	    "fillOpacity": .2,
+   		onEachFeature: onEachFeature
+	 });
+)
+
+/*
 $.getJSON("stands_WGS84.geojson",function(data){
 	  
     // add GeoJSON layer to the map once the file is loaded
@@ -60,11 +92,26 @@ $.getJSON("stands_WGS84.geojson",function(data){
 	//.addTo(map);
 	  
   });
-
+  */
 
 
 //property boundary
 var l_boundary;
+
+fetch(
+ "LCF_boundary_WGS84.geojson"
+).then(
+  res => res.json()
+).then(
+  l_boundary = data=> L.geoJson(data,{	     
+	    "color": "#0000ff",
+	    "weight": 3,
+	    "opacity": 1,
+	    "fillOpacity": 0
+	 }).addTo(l_map);
+)
+
+/*
 $.getJSON("LCF_boundary_WGS84.geojson",function(data){
     // add GeoJSON layer to the map once the file is loaded
 	l_boundary =  L.geoJson(data,{	     
@@ -75,11 +122,13 @@ $.getJSON("LCF_boundary_WGS84.geojson",function(data){
 	 }).addTo(l_map);
 	  
   });
-
+*/
 
 
 var l_baseMaps;
 var l_overlays;
+
+
 
 setTimeout(function(){
 	l_stands.bringToFront();
@@ -98,6 +147,25 @@ setTimeout(function(){
 	L.control.layers(l_baseMaps,l_overlays).addTo(l_map);
 }, 3500);
 
+
+/*
+setTimeout(function(){
+	l_stands.bringToFront();
+	l_boundary.bringToFront();
+	
+	l_baseMaps = {
+	    "Google Map": l_g_map,
+	    "Google Satellite": l_sat
+	};
+
+	l_overlays = {
+	    "Property Boundary": l_boundary,
+		"Forest Stands": l_stands,
+		"Contour Lines": l_contours};
+
+	L.control.layers(l_baseMaps,l_overlays).addTo(l_map);
+}, 3500);
+*/
 
 /***************************
 **
