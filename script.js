@@ -363,6 +363,10 @@ require([
 });
 	
 	
+	/**********************************
+	*  end arcgis online example
+	**********************************/
+	
           var arc_3d_map = new Map({
 	    basemap: "satellite",
 	//    ground: "world-elevation"
