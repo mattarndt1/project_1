@@ -58,7 +58,8 @@ fetch(
 	    "opacity": 1
 	      }).addTo(l_map);
 	
-					console.log(l_map);
+					console.log("Contours");
+					console.log(l_contours);
 	}
 ).then(function(){
 		fetch(
@@ -74,6 +75,7 @@ fetch(
 				onEachFeature: onEachFeature
 			 }).addTo(l_map);
 			
+					console.log("Stands");
 					console.log(l_stands);
 			}
 		).then(function(){
@@ -89,6 +91,7 @@ fetch(
 					    "opacity": 1,
 					    "fillOpacity": 0
 					 }).addTo(l_map);
+					console.log("Boundary");
 					console.log(l_boundary);
 					}
 				).then(function(){
