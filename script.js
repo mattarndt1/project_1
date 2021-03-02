@@ -57,6 +57,8 @@ fetch(
 	    "weight": .25,
 	    "opacity": 1
 	      }).addTo(l_map);
+	
+					console.log(l_map);
 	}
 ).then(function(){
 		fetch(
@@ -71,6 +73,8 @@ fetch(
 			    "fillOpacity": .2,
 				onEachFeature: onEachFeature
 			 }).addTo(l_map);
+			
+					console.log(l_stands);
 			}
 		).then(function(){
 
@@ -88,8 +92,8 @@ fetch(
 					console.log(l_boundary);
 					}
 				).then(function(){
-					//	l_stands.bringToFront();
-					//	l_boundary.bringToFront();
+						l_stands.bringToFront();
+						l_boundary.bringToFront();
 
 						l_baseMaps = {
 						    "Google Map": l_g_map,
