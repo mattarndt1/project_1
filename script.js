@@ -306,7 +306,7 @@ require([
 	  });
 	
 	
-	arc_3d_map.add(arc_2d_contour_geojsonLayer);
+//	arc_3d_map.add(arc_2d_contour_geojsonLayer);
 
 	 arc_3d_map.add(arc_2d_stands_geojsonLayer);
 
