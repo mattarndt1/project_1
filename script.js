@@ -141,6 +141,13 @@ fetch(
 
         });
 
+	    var homeBtn = new Home({
+		  view: arc_2d_view
+		});
+                
+        arc_2d_view.ui.add(homeBtn, "top-left");
+	 
+	 
         /********************
          * Add feature layer
          ********************/
