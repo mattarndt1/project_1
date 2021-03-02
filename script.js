@@ -335,11 +335,11 @@ require([
 	  });
 	
 	    var homeBtn = new Home({
-		  view: view
+		  view: arc_3d_view
 		});
           
       
-        view.ui.add(homeBtn, "top-left");
+         arc_3d_view.ui.add(homeBtn, "top-left");
 
         /********************
          * Add feature layer
