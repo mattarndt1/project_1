@@ -319,7 +319,7 @@ require([
 		position: [
 			-94.18,
 			40.55,
-			6500// elevation in meters
+			12000// elevation in meters
 		],
 		tilt: 0,
 		heading: 0,
