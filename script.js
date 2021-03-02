@@ -287,6 +287,7 @@ setTimeout(function(){
 
 
 require([
+      "esri/Map",
       "esri/WebScene",
       "esri/views/SceneView",
       "esri/Camera",
