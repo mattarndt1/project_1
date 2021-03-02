@@ -314,8 +314,9 @@ require([
 	 "esri/widgets/BasemapLayerList",
 	 "esri/widgets/LayerList",
 	 "esri/widgets/Expand",
+	"esri/layers/BaseElevationLayer"
       "dojo/domReady!"
-    ], function(Map,WebScene, SceneView, Camera, Home, GeoJSONLayer,BasemapToggle,BasemapLayerList,LayerList,Expand) {
+    ], function(Map,WebScene, SceneView, Camera, Home, GeoJSONLayer,BasemapToggle,BasemapLayerList,LayerList,Expand,BaseElevationLayer) {
 	
 	/**********************************
 	*  following is from arcgis online sample at https://developers.arcgis.com/javascript/latest/sample-code/layers-custom-elevation-exaggerated/?search=4.4
