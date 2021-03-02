@@ -331,7 +331,7 @@ require([
 	
 	  var arc_3d_view = new SceneView({
 	    container: "3d_map", // Reference to the DOM node that will contain the view
-	    cameron: LC_cam // References the map object created in step 3
+	    camera: LC_cam // References the map object created in step 3
 	  });
 
         /********************
