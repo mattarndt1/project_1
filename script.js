@@ -286,40 +286,118 @@ setTimeout(function(){
 ***************************/
 
 
- require([
-        "esri/Map",
-        "esri/views/MapView",
-        "esri/layers/FeatureLayer"
-      ], function (Map, MapView, FeatureLayer) {
-        var map = new Map({
-          basemap: "hybrid"
-        });
+require([
+      "esri/WebScene",
+      "esri/views/SceneView",
+      "esri/Camera",
+      "esri/widgets/Home",
+      "dojo/domReady!"
+    ], function(WebScene, SceneView, Camera, Home) {
 
-        var view = new MapView({
-          container: "3d_map",
-          map: map,
+    
+          var map = new Map({
+	    basemap: "satellite",
+	    ground: "world-elevation"
+	  });
+	  var view = new SceneView({
+	    container: "3d_map", // Reference to the DOM node that will contain the view
+	    map: map // References the map object created in step 3
+	  });
 
-          extent: {
-            // autocasts as new Extent()
-            xmin: -10366387,
-            ymin: 4902434,
-            xmax: -10356735,
-            ymax: 4919960,
-            spatialReference: 102100
-          }
-        });
+	
+	
+	
+	      var boston_camera = new Camera({
+		position: [
+		  -71.061434,
+		  42.360693,
+		  9000// elevation in meters
+		],
+		tilt: 0,
+		heading: 0,
+		fov: 90
+	      });
 
-        /********************
-         * Add feature layer
-         ********************/
+	      var camera = new Camera({
+		position: [
+		  -71.09777751,
+		  42.34625234,
+		  2// elevation in meters
+		],
+		tilt: 90,
+		heading: 45
+	      });
 
-        var featureLayer1 = new FeatureLayer({     url:"https://services2.arcgis.com/bB9Y1bGKerz1PTl5/arcgis/rest/services/Commission_prop_footprint/FeatureServer"});
-   
-        map.add(featureLayer1);
-   
-   var featureLayer2 = new FeatureLayer({     url:"https://services2.arcgis.com/bB9Y1bGKerz1PTl5/arcgis/rest/services/Normal_Pool/FeatureServer"});
-   
-        map.add(featureLayer2);
-      });
+	      var camera2 = new Camera({
+		position: {
+		  x: -71.061179,
+		  y: 42.377092,
+		  z: 2
+		},
+		tilt: 90,
+		heading: 155
+	      });
+
+	      var camera3 = new Camera({
+		position: {
+		  x: -71.025577,
+		  y: 42.355583,
+		  z: 1000
+		},
+		tilt: 65,
+		heading: 277
+	      });
+
+	      var view =  new SceneView({
+		container: "viewDiv",
+		map: scene,
+		viewingMode:"global",
+		camera: boston_camera,
+		environment: {
+		    lighting: {
+		      date: new Date(),
+		      directShadowsEnabled: true,
+		      // don't update the view time when user pans.
+		      // The clock widget drives the time
+		      cameraTrackingEnabled: false
+		    }
+		},
+	    });
+
+	    var homeBtn = new Home({
+		  view: view
+		});
 
 
+		view.ui.add(homeBtn, "top-left");
+
+		[fen, bh, dwntn].forEach(function(button) {
+		  button.style.display = 'flex';
+		  view.ui.add(button, 'top-right');
+		});
+
+
+
+	    // bunker hill
+	    bh.addEventListener('click', function() {
+	    view.goTo({
+		target:camera2
+	      });
+	    });
+
+	    //fenway park
+	    fen.addEventListener('click', function() {
+	     view.goTo({
+		target:camera
+	      });
+	    });
+
+	      //downtown from SE
+	    dwntn.addEventListener('click', function() {
+	      view.goTo({
+		target:camera3
+	      });
+	    });
+
+
+    });
