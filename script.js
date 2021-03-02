@@ -130,7 +130,6 @@ var l_overlays;
 
 
 
-setTimeout(function(){
 	l_stands.bringToFront();
 	l_boundary.bringToFront();
 	
@@ -145,7 +144,6 @@ setTimeout(function(){
 		"Contour Lines": l_contours};
 
 	L.control.layers(l_baseMaps,l_overlays).addTo(l_map);
-}, 3500);
 
 
 /*
