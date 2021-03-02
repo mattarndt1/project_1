@@ -1,6 +1,25 @@
 <!DOCTYPE />
 <html>
    <head>
+      <head>
+     <meta charset="utf-8">
+     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+     <title>Matt Arndt - Assignment 3 - Challenge</title>
+
+     <link rel="stylesheet" href="https://js.arcgis.com/4.18/esri/css/main.css">
+     <link rel="stylesheet" href="style.css">
+     <script src="https://js.arcgis.com/4.18/"></script>
+     <script src="script.js"></script>
+      
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+   </head>
+<body>
+  <div id="viewDiv"></div>
+  <button id="fen" class="off">Home Plate at Fenway</button>
+  <button id="bh" class="off">Bunker Hill</button>
+  <button id="dwntn" class="off">Downtown</button>
+  
+</body>
       
       <title>Matt Arndt - Project 1</title>
 
@@ -19,28 +38,21 @@
       <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no"/>
 
       <link rel="stylesheet" href="https://js.arcgis.com/4.18/esri/themes/light/main.css"/>
+      
+
+     <link rel="stylesheet" href="https://js.arcgis.com/4.18/esri/css/main.css">
+      
 
       <script src="https://js.arcgis.com/4.18/"></script>
+      
+      
+     <meta charset="utf-8">
+      
+      <link rel="stylesheet" href="https://js.arcgis.com/4.18/esri/themes/light/main.css"/>
     
       
       <link rel="stylesheet" href="style.css" />
       
-      <style>
-         .esri-expand__container--expanded {
-               position: relative;
-             float: right;
-               z-index: 2;
-
-             }
-
-             .esri-expand__mask--expanded {
-               position: relative;
-             float: right;
-               z-index: 2;
-             }
-         
-      </style>
-
   </head
 
 <body>
@@ -50,6 +62,10 @@
             <div id="2d_map_inner" class=map_window_inner></div>
          </div>
          <div id="3d_map" class=map_window></div>
+         
+        <button id="fen" class="off">Home Plate at Fenway</button>
+        <button id="bh" class="off">Bunker Hill</button>
+        <button id="dwntn" class="off">Downtown</button>
       </div>
    <script src="script.js"></script>
 </body>
