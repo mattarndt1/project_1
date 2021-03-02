@@ -314,7 +314,7 @@ require([
 	 "esri/widgets/BasemapLayerList",
 	 "esri/widgets/LayerList",
 	 "esri/widgets/Expand",
-	"esri/layers/BaseElevationLayer"
+	"esri/layers/BaseElevationLayer",
       "dojo/domReady!"
     ], function(Map,WebScene, SceneView, Camera, Home, GeoJSONLayer,BasemapToggle,BasemapLayerList,LayerList,Expand,BaseElevationLayer) {
 	
