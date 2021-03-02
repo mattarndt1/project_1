@@ -316,8 +316,13 @@ require([
 		  center: [-94.18,40.55],  // Sets the center point of the view at a specified lon/lat
 		  zoom: 12  // Sets the zoom LOD to 13
 	  });
-	
-	
+	/*
+	var scene = new WebScene({
+		portalItem:{
+		 id:"8046207c1c214b5587230f5e5f8efc77" 
+		}
+	      });
+	*/
 	      var LC_cam = new Camera({
 		position: [
 			-94.18,
@@ -331,7 +336,7 @@ require([
 	
 	  var arc_3d_view = new SceneView({
 	    container: "3d_map", // Reference to the DOM node that will contain the view
-	    camera: LC_cam // References the map object created in step 3
+	    map: arc_3d_map // References the map object created in step 3
 	  });
 
         /********************
