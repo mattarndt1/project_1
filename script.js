@@ -47,7 +47,7 @@ fetch(
 	    "color": "#cccccc",
 	    "weight": .25,
 	    "opacity": 1
-	      });
+	      })
 )
 
 /*
