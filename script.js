@@ -333,9 +333,20 @@ require([
 	      });
 	
 	  var arc_3d_view = new SceneView({
-	    container: "3d_map", // Reference to the DOM node that will contain the view
-	    map: arc_3d_map, // References the map object created in step 3
-		camera: LC_cam
+	        container: "3d_map", // Reference to the DOM node that will contain the view
+	        map: arc_3d_map, // References the map object created in step 3
+        	viewingMode:"global",
+		camera: LC_cam,
+		center: [-94.18,40.5],
+		environment: {
+		    lighting: {
+		      date: new Date(),
+		      directShadowsEnabled: true,
+		      // don't update the view time when user pans.
+		      // The clock widget drives the time
+		      cameraTrackingEnabled: false
+		    }
+		}
 	  });
 
         /********************
