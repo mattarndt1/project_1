@@ -57,9 +57,6 @@ fetch(
 	    "weight": .25,
 	    "opacity": 1
 	      }).addTo(l_map);
-	
-					console.log("Contours");
-					console.log(l_contours);
 	}
 ).then(function(){
 		fetch(
@@ -74,9 +71,6 @@ fetch(
 			    "fillOpacity": .2,
 				onEachFeature: onEachFeature
 			 }).addTo(l_map);
-			
-					console.log("Stands");
-					console.log(l_stands);
 			}
 		).then(function(){
 
@@ -91,8 +85,6 @@ fetch(
 					    "opacity": 1,
 					    "fillOpacity": 0
 					 }).addTo(l_map);
-					console.log("Boundary");
-					console.log(l_boundary);
 					}
 				).then(function(){
 						l_stands.bringToFront();
@@ -309,8 +301,9 @@ require([
       "esri/views/SceneView",
       "esri/Camera",
       "esri/widgets/Home",
+      "esri/layers/GeoJSONLayer",
       "dojo/domReady!"
-    ], function(Map,WebScene, SceneView, Camera, Home) {
+    ], function(Map,WebScene, SceneView, Camera, Home, GeoJSONLayer) {
 
     
           var arc_3d_map = new Map({
