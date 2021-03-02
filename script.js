@@ -293,7 +293,7 @@ require([
       "esri/Camera",
       "esri/widgets/Home",
       "dojo/domReady!"
-    ], function(WebScene, SceneView, Camera, Home) {
+    ], function(Map,WebScene, SceneView, Camera, Home) {
 
     
           var arc_3d_map = new Map({
