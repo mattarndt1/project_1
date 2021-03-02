@@ -37,6 +37,15 @@ var l_map = L.map('l_map', {
 var l_contour_layer;
 var l_contours;
 
+//forest stands
+var l_stands;
+
+//property boundary
+var l_boundary;
+
+var l_baseMaps;
+var l_overlays;
+
 
 fetch(
  "contour_lines_10ft_simplified_WGS84.geojson"
@@ -49,7 +58,7 @@ fetch(
 	    "opacity": 1
 	      }).addTo(l_map);
 	}
-)
+).then(
 
 /*
 $.getJSON("contour_lines_10ft_simplified_WGS84.geojson",function(data){
@@ -62,23 +71,22 @@ $.getJSON("contour_lines_10ft_simplified_WGS84.geojson",function(data){
   });
   */
 
-//forest stands
-var l_stands;
 
-fetch(
- "stands_WGS84.geojson"
+	fetch(
+	 "stands_WGS84.geojson"
+	).then(
+	  res => res.json()
+	).then(function(data){
+		l_stands = data => L.geoJson(data,{	     
+		    "color": "#ffff00",
+		    "weight": 1.5,
+		    "opacity": 1,
+		    "fillOpacity": .2,
+			onEachFeature: onEachFeature
+		 }).addTo(l_map);
+		}
+	)
 ).then(
-  res => res.json()
-).then(function(data){
-  	l_stands = data => L.geoJson(data,{	     
-	    "color": "#ffff00",
-	    "weight": 1.5,
-	    "opacity": 1,
-	    "fillOpacity": .2,
-   		onEachFeature: onEachFeature
-	 }).addTo(l_map);
-	}
-)
 
 /*
 $.getJSON("stands_WGS84.geojson",function(data){
@@ -97,23 +105,22 @@ $.getJSON("stands_WGS84.geojson",function(data){
   */
 
 
-//property boundary
-var l_boundary;
 
-fetch(
- "LCF_boundary_WGS84.geojson"
+	fetch(
+	 "LCF_boundary_WGS84.geojson"
+	).then(
+	  res => res.json()
+	).then(function(data){
+		l_boundary = data=> L.geoJson(data,{	     
+		    "color": "#0000ff",
+		    "weight": 3,
+		    "opacity": 1,
+		    "fillOpacity": 0
+		 }).addTo(l_map);
+		console.log(l_boundary);
+		}
+	)
 ).then(
-  res => res.json()
-).then(function(data){
-  	l_boundary = data=> L.geoJson(data,{	     
-	    "color": "#0000ff",
-	    "weight": 3,
-	    "opacity": 1,
-	    "fillOpacity": 0
-	 }).addTo(l_map);
-	console.log(l_boundary);
-	}
-)
 
 /*
 $.getJSON("LCF_boundary_WGS84.geojson",function(data){
@@ -129,8 +136,6 @@ $.getJSON("LCF_boundary_WGS84.geojson",function(data){
 */
 
 
-var l_baseMaps;
-var l_overlays;
 
 
 
@@ -149,7 +154,7 @@ var l_overlays;
 
 	L.control.layers(l_baseMaps,l_overlays).addTo(l_map);
 
-
+)
 /*
 setTimeout(function(){
 	l_stands.bringToFront();
