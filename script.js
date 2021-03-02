@@ -303,6 +303,17 @@ require([
 	    container: "3d_map", // Reference to the DOM node that will contain the view
 	    map: map // References the map object created in step 3
 	  });
+	
+	
+	arc_2d_map.add(arc_2d_contour_geojsonLayer);
+
+	 arc_2d_map.add(arc_2d_stands_geojsonLayer);
+
+	arc_2d_map.add(arc_2d_bdry_geojsonLayer);
+
+	 arc_2d_view.ui.add(arc_2d_toggle, "top-right");
+
+	arc_2d_view.ui.add(arc_2d_layerList, { position: "bottom-right"});
 
 	
 	
