@@ -314,21 +314,15 @@ require([
 	    basemap: "satellite",
 	    ground: "world-elevation"
 	  });
-	/*
-	var scene = new WebScene({
-		portalItem:{
-		 id:"8046207c1c214b5587230f5e5f8efc77" 
-		}
-	      });
-	*/
+	
 	      var LC_cam = new Camera({
 		position: [
-			-94.58,
-			40.15,
-			3500// elevation in meters
+			-94.18,
+			40.55,
+			6500// elevation in meters
 		],
-		tilt: 60,
-		heading: 42,
+		tilt: 0,
+		heading: 0,
 		fov: 90
 	      });
 	
