@@ -56,7 +56,7 @@ fetch(
 	    "color": "#cccccc",
 	    "weight": .25,
 	    "opacity": 1
-	      }).addTo(l_map);
+	      });
 	}
 ).then(function(){
 		fetch(
