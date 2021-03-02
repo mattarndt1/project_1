@@ -319,7 +319,7 @@ require([
 		position: [
 			-94.18,
 			40.55,
-			15000// elevation in meters
+			14500// elevation in meters
 		],
 		tilt: 0,
 		heading: 0,
@@ -333,6 +333,13 @@ require([
 		camera: LC_cam,
 		center: [-94.18,40.5]
 	  });
+	
+	    var homeBtn = new Home({
+		  view: view
+		});
+          
+      
+        view.ui.add(homeBtn, "top-left");
 
         /********************
          * Add feature layer
