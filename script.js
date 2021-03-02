@@ -461,7 +461,7 @@ require([
 
 	      var view =  new SceneView({
 		container: "viewDiv",
-		map: scene,
+		map: arc_3d_map,
 		viewingMode:"global",
 		camera: boston_camera,
 		environment: {
