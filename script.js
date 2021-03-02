@@ -124,8 +124,9 @@ fetch(
 	 "esri/widgets/BasemapToggle",
 	 "esri/widgets/BasemapLayerList",
 	 "esri/widgets/LayerList",
-	 "esri/widgets/Expand"
-      ], function (Map, MapView, FeatureLayer,TileLayer,GeoJSONLayer,BasemapToggle,BasemapLayerList,LayerList,Expand) {
+	 "esri/widgets/Expand",
+	 "esri/widgets/Compass"
+      ], function (Map, MapView, FeatureLayer,TileLayer,GeoJSONLayer,BasemapToggle,BasemapLayerList,LayerList,Expand,Compass) {
         var arc_2d_map = new Map({
           basemap: "satellite"
         });
@@ -140,13 +141,13 @@ fetch(
 	  zoom: 12  // Sets the zoom LOD to 13
 
         });
-
-	    var homeBtn = new Home({
-		  view: arc_2d_view
-		});
-                
-        arc_2d_view.ui.add(homeBtn, "top-left");
 	 
+	var compass = new Compass({
+	  view: arc_2d_view
+	});
+
+	// adds the compass to the top left corner of the MapView
+	arc_2d_view.ui.add(compass, "top-left");
 	 
         /********************
          * Add feature layer
