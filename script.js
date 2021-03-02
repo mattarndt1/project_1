@@ -59,19 +59,6 @@ fetch(
 	      }).addTo(l_map);
 	}
 ).then(function(){
-
-/*
-$.getJSON("contour_lines_10ft_simplified_WGS84.geojson",function(data){
-	 
-	l_contours = L.geoJson(data,{	     
-	    "color": "#cccccc",
-	    "weight": .25,
-	    "opacity": 1
-	      });
-  });
-  */
-
-
 		fetch(
 		 "stands_WGS84.geojson"
 		).then(
@@ -85,98 +72,43 @@ $.getJSON("contour_lines_10ft_simplified_WGS84.geojson",function(data){
 				onEachFeature: onEachFeature
 			 }).addTo(l_map);
 			}
-		)
-	}
-).then(function(){
+		).then(function(){
 
-/*
-$.getJSON("stands_WGS84.geojson",function(data){
-	  
-    // add GeoJSON layer to the map once the file is loaded
-	l_stands = L.geoJson(data,{	     
-	    "color": "#ffff00",
-	    "weight": 1.5,
-	    "opacity": 1,
-	    "fillOpacity": .2,
-   		onEachFeature: onEachFeature
-	 });
-	//.addTo(map);
-	  
-  });
-  */
+				fetch(
+				 "LCF_boundary_WGS84.geojson"
+				).then(
+				  res => res.json()
+				).then(function(data){
+					l_boundary = data=> L.geoJson(data,{	     
+					    "color": "#0000ff",
+					    "weight": 3,
+					    "opacity": 1,
+					    "fillOpacity": 0
+					 }).addTo(l_map);
+					console.log(l_boundary);
+					}
+				).then(function(){
+						l_stands.bringToFront();
+						l_boundary.bringToFront();
 
+						l_baseMaps = {
+						    "Google Map": l_g_map,
+						    "Google Satellite": l_sat
+						};
 
+						l_overlays = {
+						    "Property Boundary": l_boundary,
+							"Forest Stands": l_stands,
+							"Contour Lines": l_contours};
 
-		fetch(
-		 "LCF_boundary_WGS84.geojson"
-		).then(
-		  res => res.json()
-		).then(function(data){
-			l_boundary = data=> L.geoJson(data,{	     
-			    "color": "#0000ff",
-			    "weight": 3,
-			    "opacity": 1,
-			    "fillOpacity": 0
-			 }).addTo(l_map);
-			console.log(l_boundary);
+						L.control.layers(l_baseMaps,l_overlays).addTo(l_map);
+					}
+
+				)
 			}
 		)
 	}
-).then(function(){
-
-/*
-$.getJSON("LCF_boundary_WGS84.geojson",function(data){
-    // add GeoJSON layer to the map once the file is loaded
-	l_boundary =  L.geoJson(data,{	     
-	    "color": "#0000ff",
-	    "weight": 3,
-	    "opacity": 1,
-	    "fillOpacity": 0
-	 }).addTo(l_map);
-	  
-  });
-*/
-
-
-
-
-
-		l_stands.bringToFront();
-		l_boundary.bringToFront();
-
-		l_baseMaps = {
-		    "Google Map": l_g_map,
-		    "Google Satellite": l_sat
-		};
-
-		l_overlays = {
-		    "Property Boundary": l_boundary,
-			"Forest Stands": l_stands,
-			"Contour Lines": l_contours};
-
-		L.control.layers(l_baseMaps,l_overlays).addTo(l_map);
-	}
-
 )
-/*
-setTimeout(function(){
-	l_stands.bringToFront();
-	l_boundary.bringToFront();
-	
-	l_baseMaps = {
-	    "Google Map": l_g_map,
-	    "Google Satellite": l_sat
-	};
-
-	l_overlays = {
-	    "Property Boundary": l_boundary,
-		"Forest Stands": l_stands,
-		"Contour Lines": l_contours};
-
-	L.control.layers(l_baseMaps,l_overlays).addTo(l_map);
-}, 3500);
-*/
-
 /***************************
 **
 **	ArcGIS 2D API
