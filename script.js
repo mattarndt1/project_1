@@ -75,7 +75,7 @@ fetch(
 	    "opacity": 1,
 	    "fillOpacity": .2,
    		onEachFeature: onEachFeature
-	 });
+	 })
 )
 
 /*
@@ -108,7 +108,7 @@ fetch(
 	    "weight": 3,
 	    "opacity": 1,
 	    "fillOpacity": 0
-	 }).addTo(l_map);
+	 }).addTo(l_map)
 )
 
 /*
