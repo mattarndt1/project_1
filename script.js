@@ -58,7 +58,7 @@ fetch(
 	    "opacity": 1
 	      }).addTo(l_map);
 	}
-).then(
+).then(function(){
 
 /*
 $.getJSON("contour_lines_10ft_simplified_WGS84.geojson",function(data){
@@ -72,21 +72,22 @@ $.getJSON("contour_lines_10ft_simplified_WGS84.geojson",function(data){
   */
 
 
-	fetch(
-	 "stands_WGS84.geojson"
-	).then(
-	  res => res.json()
-	).then(function(data){
-		l_stands = data => L.geoJson(data,{	     
-		    "color": "#ffff00",
-		    "weight": 1.5,
-		    "opacity": 1,
-		    "fillOpacity": .2,
-			onEachFeature: onEachFeature
-		 }).addTo(l_map);
-		}
-	)
-).then(
+		fetch(
+		 "stands_WGS84.geojson"
+		).then(
+		  res => res.json()
+		).then(function(data){
+			l_stands = data => L.geoJson(data,{	     
+			    "color": "#ffff00",
+			    "weight": 1.5,
+			    "opacity": 1,
+			    "fillOpacity": .2,
+				onEachFeature: onEachFeature
+			 }).addTo(l_map);
+			}
+		)
+	}
+).then(function(){
 
 /*
 $.getJSON("stands_WGS84.geojson",function(data){
@@ -106,21 +107,22 @@ $.getJSON("stands_WGS84.geojson",function(data){
 
 
 
-	fetch(
-	 "LCF_boundary_WGS84.geojson"
-	).then(
-	  res => res.json()
-	).then(function(data){
-		l_boundary = data=> L.geoJson(data,{	     
-		    "color": "#0000ff",
-		    "weight": 3,
-		    "opacity": 1,
-		    "fillOpacity": 0
-		 }).addTo(l_map);
-		console.log(l_boundary);
-		}
-	)
-).then(
+		fetch(
+		 "LCF_boundary_WGS84.geojson"
+		).then(
+		  res => res.json()
+		).then(function(data){
+			l_boundary = data=> L.geoJson(data,{	     
+			    "color": "#0000ff",
+			    "weight": 3,
+			    "opacity": 1,
+			    "fillOpacity": 0
+			 }).addTo(l_map);
+			console.log(l_boundary);
+			}
+		)
+	}
+).then(function(){
 
 /*
 $.getJSON("LCF_boundary_WGS84.geojson",function(data){
@@ -139,20 +141,21 @@ $.getJSON("LCF_boundary_WGS84.geojson",function(data){
 
 
 
-	l_stands.bringToFront();
-	l_boundary.bringToFront();
-	
-	l_baseMaps = {
-	    "Google Map": l_g_map,
-	    "Google Satellite": l_sat
-	};
+		l_stands.bringToFront();
+		l_boundary.bringToFront();
 
-	l_overlays = {
-	    "Property Boundary": l_boundary,
-		"Forest Stands": l_stands,
-		"Contour Lines": l_contours};
+		l_baseMaps = {
+		    "Google Map": l_g_map,
+		    "Google Satellite": l_sat
+		};
 
-	L.control.layers(l_baseMaps,l_overlays).addTo(l_map);
+		l_overlays = {
+		    "Property Boundary": l_boundary,
+			"Forest Stands": l_stands,
+			"Contour Lines": l_contours};
+
+		L.control.layers(l_baseMaps,l_overlays).addTo(l_map);
+	}
 
 )
 /*
