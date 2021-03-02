@@ -70,7 +70,7 @@ fetch(
 			    "opacity": 1,
 			    "fillOpacity": .2,
 				onEachFeature: onEachFeature
-			 }).addTo(l_map);
+			 });
 			}
 		).then(function(){
 
