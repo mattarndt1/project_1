@@ -52,7 +52,7 @@ fetch(
 ).then(
   res => res.json()
 ).then(function(data){
-  	l_contours = data => L.geoJson(data,{	     
+  	l_contours = L.geoJson(data,{	     
 	    "color": "#cccccc",
 	    "weight": .25,
 	    "opacity": 1
@@ -67,7 +67,7 @@ fetch(
 		).then(
 		  res => res.json()
 		).then(function(data){
-			l_stands = data => L.geoJson(data,{	     
+			l_stands = L.geoJson(data,{	     
 			    "color": "#ffff00",
 			    "weight": 1.5,
 			    "opacity": 1,
@@ -85,7 +85,7 @@ fetch(
 				).then(
 				  res => res.json()
 				).then(function(data){
-					l_boundary = data=> L.geoJson(data,{	     
+					l_boundary = L.geoJson(data,{	     
 					    "color": "#0000ff",
 					    "weight": 3,
 					    "opacity": 1,
