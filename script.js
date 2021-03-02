@@ -323,7 +323,6 @@ require([
 			-94.18,
 			40.55,
 			9000// elevation in meters
-			]
 		],
 		tilt: 0,
 		heading: 0,
