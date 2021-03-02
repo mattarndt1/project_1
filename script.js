@@ -42,12 +42,13 @@ fetch(
  "contour_lines_10ft_simplified_WGS84.geojson"
 ).then(
   res => res.json()
-).then(
-  l_contours = data => L.geoJson(data,{	     
+).then(function(data){
+  	l_contours = data => L.geoJson(data,{	     
 	    "color": "#cccccc",
 	    "weight": .25,
 	    "opacity": 1
-	      })
+	      }).addTo(l_map);
+	}
 )
 
 /*
@@ -68,14 +69,15 @@ fetch(
  "stands_WGS84.geojson"
 ).then(
   res => res.json()
-).then(
-  l_stands = data => L.geoJson(data,{	     
+).then(function(data){
+  	l_stands = data => L.geoJson(data,{	     
 	    "color": "#ffff00",
 	    "weight": 1.5,
 	    "opacity": 1,
 	    "fillOpacity": .2,
    		onEachFeature: onEachFeature
-	 })
+	 }).addTo(l_map);
+	}
 )
 
 /*
@@ -102,13 +104,14 @@ fetch(
  "LCF_boundary_WGS84.geojson"
 ).then(
   res => res.json()
-).then(
-  l_boundary = data=> L.geoJson(data,{	     
+).then(function(data){
+  	l_boundary = data=> L.geoJson(data,{	     
 	    "color": "#0000ff",
 	    "weight": 3,
 	    "opacity": 1,
 	    "fillOpacity": 0
-	 }).addTo(l_map)
+	 }).addTo(l_map);
+	}
 )
 
 /*
