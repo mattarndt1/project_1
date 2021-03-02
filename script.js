@@ -321,17 +321,102 @@ require([
 	    container: "3d_map", // Reference to the DOM node that will contain the view
 	    map: arc_3d_map // References the map object created in step 3
 	  });
-	
-	
-//	arc_3d_map.add(arc_2d_contour_geojsonLayer);
 
-	 arc_3d_map.add(arc_2d_stands_geojsonLayer);
+        /********************
+         * Add feature layer
+         ********************/
+	 
+        var arc_3d_contour_geojsonLayer = new GeoJSONLayer({
+	  	url: "contour_lines_10ft_simplified_WGS84.geojson",
+		id: "Contour Lines",
+		title: "Contour Lines",
+		visible: false,
+		renderer: {
+			type: "simple",
+			symbol: {
+			  color: "#cccccc",
+			  type: "simple-line",
+			  style: "solid",
+				width: .25
+			}
+		}
+	});
+	 
+        arc_3d_map.add(arc_3d_contour_geojsonLayer);
+	 
+	 var arc_3d_pop_template = {
+          title: "Stand info",
+		 content: [
+            		{
+              			type: "fields",
+              			fieldInfos: [
+                			{
+					  fieldName: "Name",
+					  label: "Stand #"
+					},
+					{
+					  fieldName: "ACRES",
+					  label: "Acres"
+					}
+              			]
+            		}
+          	]
+        };
+	 
+        var arc_3d_stands_geojsonLayer = new GeoJSONLayer({
+	  	url: "stands_WGS84.geojson",
+		id: "Forest Stands",
+		title: "Forest Stands",
+		visible: false,
+		popupTemplate: arc_3d_pop_template,
+		renderer: {
+			  type: "simple",  // autocasts as new SimpleRenderer()
+			  symbol: {
+			    type: "simple-fill",  // autocasts as new SimpleFillSymbol()
+			    color: [255,255,0,.2],
+			    outline: {  // autocasts as new SimpleLineSymbol()
+			      width: 1,
+			      color: "#ffff00"
+			    }
+			  }
+			}
+		
+	});
+	 
+        arc_3d_map.add(arc_3d_stands_geojsonLayer);
+	 
+        var arc_3d_bdry_geojsonLayer = new GeoJSONLayer({
+	  url: "LCF_boundary_WGS84.geojson",
+		id: "Property Boundary",
+		title: "Property Boundary",
+		renderer: {
+			  type: "simple",  // autocasts as new SimpleRenderer()
+			  symbol: {
+			    type: "simple-fill",  // autocasts as new SimpleFillSymbol()
+			    color: "#0000ff",
+			    style: "none",
+			    outline: {  // autocasts as new SimpleLineSymbol()
+			      width: 1.5,
+			      color: "#0000ff"
+			    }
+			  }
+			}
+	});
+	 
+        arc_3d_map.add(arc_3d_bdry_geojsonLayer);
+ 
+	 var arc_3d_toggle = new BasemapToggle({
+          view: arc_3d_view, 
+          nextBasemap: "topo-vector" 
+        });
 
-	arc_3d_map.add(arc_2d_bdry_geojsonLayer);
-
-	 arc_3d_view.ui.add(arc_2d_toggle, "top-right");
-
-	arc_3d_view.ui.add(arc_2d_layerList, { position: "bottom-right"});
+        arc_3d_view.ui.add(arc_3d_toggle, "top-right");
+	 
+	 var arc_3d_layerList = new LayerList({
+		  view: arc_3d_view,
+		 container: "3d_map_window_inner"
+		});
+	arc_3d_view.ui.add(arc_3d_layerList, { position: "bottom-right"});
 
 	
 	
