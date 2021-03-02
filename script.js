@@ -316,11 +316,60 @@ require([
 	 "esri/widgets/Expand",
       "dojo/domReady!"
     ], function(Map,WebScene, SceneView, Camera, Home, GeoJSONLayer,BasemapToggle,BasemapLayerList,LayerList,Expand) {
+	
+	/**********************************
+	*  following is from arcgis online sample at https://developers.arcgis.com/javascript/latest/sample-code/layers-custom-elevation-exaggerated/?search=4.4
+	**********************************/
+	
+	const ExaggeratedElevationLayer = BaseElevationLayer.createSubclass({
+  properties: {
+    // exaggerates the actual elevations by 70x
+    exaggeration: 2
+  },
 
-    
+  load: function() {
+    this._elevation = new ElevationLayer({
+      url: "//elevation3d.arcgis.com/arcgis/rest/services/WorldElevation3D/TopoBathy3D/ImageServer"
+    });
+
+    // wait for the elevation layer to load before resolving load()
+    this.addResolvingPromise(
+      this._elevation.load().then(() => {
+        // get tileInfo, spatialReference and fullExtent from the elevation service
+        // this is required for elevation services with a custom spatialReference
+        this.tileInfo = this._elevation.tileInfo;
+        this.spatialReference = this._elevation.spatialReference;
+        this.fullExtent = this._elevation.fullExtent;
+      })
+    );
+
+    return this;
+
+  },
+
+  // Fetches the tile(s) visible in the view
+  fetchTile: function(level, row, col, options) {
+    return this._elevation.fetchTile(level, row, col, options).then(
+      function(data) {
+        var exaggeration = this.exaggeration;
+        for (var i = 0; i < data.values.length; i++) {
+          data.values[i] = data.values[i] * exaggeration;
+        }
+
+        return data;
+      }.bind(this)
+    );
+  }
+});
+	
+	
           var arc_3d_map = new Map({
 	    basemap: "satellite",
-	    ground: "world-elevation"
+	//    ground: "world-elevation"
+		  
+		  ground: {
+		    layers: [new ExaggeratedElevationLayer()]
+		  }
 	  });
 	
 	      var LC_cam = new Camera({
