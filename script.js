@@ -317,7 +317,7 @@ require([
 		  zoom: 12  // Sets the zoom LOD to 13
 	  });
 	
-	/*
+	
 	      var LC_cam = new Camera({
 		position: [
 			-94.18,
@@ -329,10 +329,10 @@ require([
 		heading: 0,
 		fov: 90
 	      });
-	*/
+	
 	  var arc_3d_view = new SceneView({
 	    container: "3d_map", // Reference to the DOM node that will contain the view
-	    map: arc_3d_map // References the map object created in step 3
+	    cameron: LC_cam // References the map object created in step 3
 	  });
 
         /********************
