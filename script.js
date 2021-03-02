@@ -111,6 +111,7 @@ fetch(
 	    "opacity": 1,
 	    "fillOpacity": 0
 	 }).addTo(l_map);
+	console.log(l_boundary);
 	}
 )
 
