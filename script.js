@@ -246,7 +246,7 @@ fetch(
 	arc_2d_view.ui.add(arc_2d_layerList, { position: "bottom-right"});
 	*/ 
 	 layerList = new LayerList({
-		  container: $("#2d_map").append("<div>");
+		  container: $("#2d_map").append("<div>"),
 		  view: arc_2d_view
 		});
 		layerListExpand = new Expand({
