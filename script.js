@@ -238,12 +238,24 @@ fetch(
         });
 
         arc_2d_view.ui.add(arc_2d_toggle, "top-right");
-	 
+	/* 
 	 var arc_2d_layerList = new LayerList({
 		  view: arc_2d_view,
 		 container: "2d_map_window_inner"
 		});
 	arc_2d_view.ui.add(arc_2d_layerList, { position: "bottom-right"});
+	*/ 
+	 layerList = new LayerList({
+		  container: document.createElement("div"),
+		  view: arc_2d_view
+		});
+		layerListExpand = new Expand({
+		  expandIconClass: "esri-icon-layer-list",  // see https://developers.arcgis.com/javascript/latest/guide/esri-icon-font/
+		  // expandTooltip: "Expand LayerList", // optional, defaults to "Expand" for English locale
+		  view: arc_2d_view,
+		  content: layerList
+		});
+		arc_2d_view.ui.add(layerListExpand, "bottom-right");
 	 
 	/* 
 	 var arc_2d_layerListExpand = new Expand({
