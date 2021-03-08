@@ -567,34 +567,4 @@ require([
 
 
 		view.ui.add(homeBtn, "top-left");
-/*
-		[fen, bh, dwntn].forEach(function(button) {
-		  button.style.display = 'flex';
-		  view.ui.add(button, 'top-right');
-		});
-
-
-
-	    // bunker hill
-	    bh.addEventListener('click', function() {
-	    view.goTo({
-		target:camera2
-	      });
-	    });
-
-	    //fenway park
-	    fen.addEventListener('click', function() {
-	     view.goTo({
-		target:camera
-	      });
-	    });
-
-	      //downtown from SE
-	    dwntn.addEventListener('click', function() {
-	      view.goTo({
-		target:camera3
-	      });
-	    });
-
-*/
     });
